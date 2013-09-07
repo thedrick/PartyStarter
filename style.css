@@ -174,25 +174,31 @@ nav {
 }
 
 .title {
-	padding-top: 35px;
-	font-size: 1.5em;
+	padding-top: 20px;
+	font-size: 1.2em;
 	font-weight: 150;
+	width: 90%;
+	text-align: center;
+	margin: 0 auto;
 }
 
 .info {
-	padding-top: 25px;
-	margin-left: 25px;
-	margin-right: 25px;
+	position: absolute;
+	bottom: 0;
+	padding-bottom: 30px;
+	width: 100%;
 }
 
 .days-info {
 	float: left;
 	display: inline-block;
+	margin-left: 20px;
 }
 
 .money-info {
 	float: right;
 	display: inline-block;
+	margin-right: 20px;
 }
 
 .days1, .money1 {
@@ -205,6 +211,8 @@ nav {
 	font-size: 0.7em;
 	text-align: center;
 }
+
+
 
 .view-btn {
   background: #3D95CE;
