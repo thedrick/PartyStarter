@@ -16,12 +16,12 @@ Ember.Model.reopenClass({
 
 PartyStarter.Party = Ember.Model.extend({
   objectId: Ember.attr()
-, date: Ember.attr()
+, date: Ember.attr(Date)
 , name: Ember.attr()
 , description: Ember.attr()
 , location: Ember.attr()
-, minDonation: Ember.attr()
-, totalCost: Ember.attr()
+, minDonation: Ember.attr(Number)
+, totalCost: Ember.attr(Number)
 , photoUrl: Ember.attr()
 });
 
