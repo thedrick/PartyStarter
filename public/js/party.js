@@ -138,7 +138,8 @@ $(document).ready(function() {
       error: function(err) {
         console.log("Error saving new attendee", err);
       }
-    }); 
+    });
+  }
 
   window.openCreateForm = function() {
     $('.bottom-img').addClass('host-form-active');
