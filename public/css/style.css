@@ -318,25 +318,41 @@ nav {
 }
 
 /* View Party */
+.header-img {
+    /*background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;*/
+    width: 100%;
+    -webkit-box-shadow: 4px 0 4px #555;
+    -moz-box-shadow: 4px 0 4px #555;
+    box-shadow: 4px 0 4px #555;
+/*    position: absolute;*/
+    top: 0;
+    bottom: 60%;
+    opacity: 0.8;
+	height: 35%;
+}
+
 .party-name {
     color: #FFF;
-    font: 3.2em 'Gudea', sans-serif;
+    font: 5em 'Gudea', sans-serif;
     font-style: italic;
     opacity: .8;
-    padding-top: 30px;
+    padding-top: 80px;
     text-shadow: 1px 1px 5px #333;
     text-transform: uppercase;
 	text-align: center;
 }
 
 .party-desc{
-    color: #FFF;
-    font: 1em 'Gudea', sans-serif;
+    color: #000;
+    font: 1.5em 'Gudea', sans-serif;
     font-style: italic;
     opacity: .8;
     padding-top: 30px;
-    text-shadow: 1px 1px 5px #333;
-	text-align: center;
-	width: 90%;
+/*    text-shadow: 1px 1px 5px #333;
+*/	text-align: center;
+	width: 75%;
 	line-height: 1.3em;
 }
