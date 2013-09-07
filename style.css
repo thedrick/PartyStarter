@@ -1,0 +1,49 @@
+body {
+  background: #EEE;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  color: #333;
+  margin: 0;
+}
+.center-block {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Headers & Text */
+.header-sans {
+  color: #FFF;
+  font: 10em/1em 'Gudea', sans-serif;
+  font-style: italic;
+  font-weight: 200;
+  padding-top: 150px;
+  text-shadow: 1px 1px 5px #333;
+  text-transform: uppercase;
+}
+
+/* Button */
+.sign-in-btn {
+  background: #3D95CE;
+  border: 0;
+  border-radius: 10px;
+  color: #FFF;
+  font: 2em/1em 'Source Sans Pro', sans-serif;
+  font-weight: 200;
+  margin-top: 60px;
+  padding: 16px 4px;
+  text-decoration: none;
+  width: 500px;
+  -webkit-box-shadow: 0 0 8px #555;
+  -moz-box-shadow: 0 0 8px #555;
+  box-shadow: 0 0 8px #555;
+  -webkit-transition: background 0.2s ease-in-out;
+  -moz-transition: background 0.2s ease-in-out;
+  -o-transition: background 0.2s ease-in-out;
+  transition: background: 0.2s ease-in-out;
+}
+.sign-in-btn:hover {
+  background: #555;
+}
