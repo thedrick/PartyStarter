@@ -5,6 +5,7 @@ PartyStarter.Router.reopen({
 PartyStarter.Router.map(function() {
   this.route('welcome');
   this.route('parties');
+  this.route('party');
   this.route('oauth', { path: '/oauth/venmo' });
 });
 

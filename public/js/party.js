@@ -50,6 +50,18 @@ $(document).ready(function() {
     });
   }
 
+  window.findParties = function() {
+    var query = new Parse.Query(Party);
+    query.find({
+      success: function(result) {
+        return result;
+      },
+      error: function(error) {
+        return error;
+      }
+    });
+  }
+
   window.loadParties = function() {
     var query = new Parse.Query(Party);
     var partiesElt = $(".parties");
