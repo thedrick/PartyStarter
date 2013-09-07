@@ -89,6 +89,7 @@ body {
   display: none;
   padding-top: 130px;
   text-shadow: 1px 1px 5px #333;
+  text-transform: lowercase;
 }
 .test {
   font: 6em/1em 'Gudea', sans-serif;
