@@ -38,7 +38,18 @@ $(document).ready(function() {
     var formArray = $("#createPartyForm").serializeArray();
     var party = new Party();
     for (var i = 0; i < formArray.length; i++) {
-      party.set(formArray[i].name, formArray[i].value);
+      var element = formArray[i];
+      if (element.name == "date") {
+        party.set(element.name, new Date(element.value));
+      } else if (element.name == "totalCost" || element.name == "minDonation") {
+        if (!(Number(element.value))) {
+          alert("You must use numbers for the total cost and the minimum donation!");
+          return;
+        }
+        party.set(element.name, Number(element.value));
+      } else {
+        party.set(element.name, element.value);
+      }
     }
 	var photoUploadControl = $("#createPartyPhoto")[0];
 	if (photoUploadControl.files.length > 0) {
@@ -55,7 +66,7 @@ $(document).ready(function() {
 	      success: function(obj) {
 	        console.log("Successfully saved a party ", obj);
 	        console.log("url: ", obj.get("photoUrl"));
-			// window.location = '/party/' + obj.id;
+			    window.location = '/parties/' + obj.id;
 	      }, 
 	      error: function(obj, err) {
 	        console.log("An error occured: ", err);
