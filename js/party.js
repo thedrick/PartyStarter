@@ -3,7 +3,7 @@ $(document).ready(function() {
 
   var Party = Parse.Object.extend("Party");
 
-  function addParty(partyObj) {
+  window.addParty = function(partyObj) {
     var party = new Party();
     party.set("name", partyObj.name);
     party.set("location", partyObj.location);
@@ -19,7 +19,7 @@ $(document).ready(function() {
     });
   }
 
-  function getParty(partyid) {
+  window.getParty = function(partyid) {
     var query = new Parse.Query(Party);
     query.get(partyid, {
       success: function(party) {
@@ -33,9 +33,22 @@ $(document).ready(function() {
     });
   }
 
-  function createParty() {
-    
+  window.createParty = function() {
+    var formArray = $("#createPartyForm").serializeArray();
+    var party = new Party();
+    for (var i = 0; i < formArray.length; i++) {
+      party.set(formArray[i].name, formArray[i].value);
+    }
+    party.save(null, { 
+      success: function(obj) {
+        console.log("Successfully saved a party ", obj);
+      }, 
+      error: function(obj, err) {
+        console.log("An error occured: ", err);
+      }
+    });
   }
 
+  $('#createPartyButton').on('click', window.createParty);
   $('.js-venmo-sign-in').on('click', Venmo.auth);
 });
