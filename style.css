@@ -10,10 +10,12 @@ body {
   text-align: center;
 }
 .top-img {
+  display: block;
   background-size: cover;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
+  text-decoration: none;
   width: 100%;
   -webkit-box-shadow: 4px 0 4px #555;
   -moz-box-shadow: 4px 0 4px #555;
@@ -21,18 +23,20 @@ body {
   position: absolute;
   top: 0;
   bottom: 50%;
-  opacity: .5;
+  opacity: .6;
 }
 .bottom-img {
+  display: block;
   background-size: cover;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
+  text-decoration: none;
   position: absolute;
   top: 50%;
   bottom: 0;
   width: 100%;
-  opacity: .5;
+  opacity: .6;
 }
 .top-img:hover,
 .bottom-img:hover {
@@ -78,7 +82,7 @@ body {
   color: #FFF;
   font: 6em/1em 'Source Sans Pro', sans-serif;
   display: none;
-  padding-top: 120px;
+  padding-top: 130px;
   text-shadow: 1px 1px 5px #333;
 }
 .test {
