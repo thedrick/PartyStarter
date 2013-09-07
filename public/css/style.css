@@ -178,8 +178,11 @@ body {
   transition: background 0.2s ease-in-out;
 }
 .sign-in-btn:hover,
-.create-btn:hover {
+.create-btn:hover,
+.sign-in-btn:focus,
+.create-btn:focus {
   background: #555;
+  outline: 0;
 }
 
 /* Nav */

@@ -43,6 +43,7 @@ $(document).ready(function() {
     party.save(null, { 
       success: function(obj) {
         console.log("Successfully saved a party ", obj);
+        window.location = '/party/' + obj.id;
       }, 
       error: function(obj, err) {
         console.log("An error occured: ", err);
