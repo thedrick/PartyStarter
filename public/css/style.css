@@ -326,15 +326,10 @@ nav {
 
 /* View Party */
 .header-img {
-    /*background-size: cover;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;*/
     width: 100%;
     -webkit-box-shadow: 4px 0 4px #555;
     -moz-box-shadow: 4px 0 4px #555;
     box-shadow: 4px 0 4px #555;
-/*    position: absolute;*/
     top: 0;
     bottom: 60%;
     opacity: 0.8;
@@ -354,12 +349,63 @@ nav {
 
 .party-desc{
     color: #000;
-    font: 1.5em 'Gudea', sans-serif;
     font-style: italic;
     opacity: .8;
     padding-top: 30px;
 /*    text-shadow: 1px 1px 5px #333;
 */	text-align: center;
+/*	width: 75%;
+*/	line-height: 1.3em;
+	font-size: 1.5em;
+	width: 80%;
+}
+
+#party-info {
 	width: 75%;
-	line-height: 1.3em;
+	margin: 0 auto;
+	font: 1em 'Gudea', sans-serif;
+	text-align: center;
+	margin-top: 30px;
+}
+
+.party-info-section {
+	width: 270px;
+	display: inline-block;
+	margin: 0 auto;
+	text-align: center;
+	margin-top: 60px;
+	font-size: 2em;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.info-title {
+	display: block;
+	margin-bottom: 20px;
+}
+
+.info-pic {
+	display: block;
+	margin: 0 auto;
+	width: 250px;
+	height: 250px;
+	border: 1px solid black;
+}
+
+#money-info-section {
+	margin: 0 auto;
+	margin-top: 30px;
+	width: 100%;
+	height: auto;
+	margin-bottom: 50px;
+}
+
+#scale {
+	width: 80%;
+	height: 100px;
+}
+
+.donate {
+	margin: 0 auto;
+	width: 80%;
 }
