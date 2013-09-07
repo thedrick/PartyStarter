@@ -34,7 +34,6 @@ PartyStarter.IndexController = Ember.Controller.extend({
   }
 });
 
-
 PartyStarter.PartiesController = Ember.Controller.extend({
   parties: [{
     "name" : "My Party",
