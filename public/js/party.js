@@ -147,7 +147,7 @@ $(document).ready(function() {
       }
     });
   }
-
+  
   $('#createPartyButton').on('click', window.createParty);
   $('.donate-btn').on('click', window.addAttendee);
 
