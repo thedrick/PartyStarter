@@ -30,13 +30,6 @@ PartyStarter.Party = Ember.Model.extend({
 , description: Ember.attr()
 , location: Ember.attr()
 , minDonation: Ember.attr(Number)
-// , minDonation: Ember.computed(function() {
-// 	var minDon = this.get('minDonation').toString();
-// 	// console.log("min donation: ", minDon);
-// 	// var finalMin = "$" + minDon;
-// 	return minDon;
-// 	// return minDon;
-//   })
 , totalCost: Ember.attr(Number)
 , photoUrl: Ember.attr()
 , headerBg: Ember.computed(function() {
