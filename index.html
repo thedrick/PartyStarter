@@ -3,7 +3,7 @@
   <head>
     <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
     <title>PartyStarter</title>
-    <link href="http://fonts.googleapis.com/css?family=Gudea:400italic|Source+Sans+Pro:400" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Gudea:400italic|Source+Sans+Pro:200,400" rel="stylesheet" type="text/css">
     <link href="/css/style.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" type="text/css" href="/css/create.css">
     <script src="http://www.parsecdn.com/js/parse-1.2.10.min.js"></script>
@@ -37,10 +37,21 @@
 
     <script type="text/x-handlebars" data-template-name="welcome">
       <div class="black-bg">
-        <a href="#" class="top-img">
+        <div class="top-img">
           <span class="cant-stop center-block">We Can't Stop</span>
           <span class="subtitle center-block">Host a Party</span>
-        </a>
+
+          <form id="createPartyForm" action="javascript:createParty();">
+            <div class="inputrow"><span class="inputlabel">Name</span><input type="text" name="name" id="createPartyName"></div>
+            <div class="inputrow"><span class="inputlabel">Location</span><input type="text" name="location" id="createPartyLocation"></div>
+            <div class="inputrow"><span class="inputlabel">Photo</span><input type="file" name="photo" id="createPartyPhoto"></div>
+            <div class="inputrow"><span class="inputlabel">Date &amp; Time</span><input type="datetime-local" name="date" id="createPartyDate"></div>
+            <div class="inputrow"><span class="inputlabel">Total Cost</span><input type="number" name="totalCost" id="createPartyTotalCost"></div>
+            <div class="inputrow"><span class="inputlabel">Minimum Donation</span><input type="number" name="minDonation" id="createPartyMinDonation"></div      >
+            <div class="inputrow"><span class="inputlabel">Description</span><textarea name="description" id="createPartyDescription"></textarea></div>
+            <div class="inputrow"><input class="view-btn center-block" type="button" name="create" id="createPartyButton" value="Let's get it poppin' &rightarrow;"></div>
+          </form>
+        </div>
       
         <a href="/parties" class="bottom-img">
           <span class="cant-stop center-block">We Won't Stop</span>

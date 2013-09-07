@@ -6,6 +6,10 @@ body {
 }
 .landing-page {
   background: url('/img/large-solo.jpg') no-repeat center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 .center-block {
   display: block;
@@ -13,57 +17,89 @@ body {
   text-align: center;
 }
 
+/*** Welcome ***/
 .top-img {
-  display: block;
   background: url('/img/bottles.jpg') no-repeat center fixed;
-  background-size: cover;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-  text-decoration: none;
-  width: 100%;
+  box-shadow: 4px 0 4px #555;
   -webkit-box-shadow: 4px 0 4px #555;
   -moz-box-shadow: 4px 0 4px #555;
-  box-shadow: 4px 0 4px #555;
+  background-size: cover;
   position: absolute;
   top: 0;
   bottom: 50%;
+  width: 100%;
   opacity: .6;
+  text-decoration: none;
   -webkit-transition: opacity 0.2s ease-in-out;
   -moz-transition: opacity 0.2s ease-in-out;
   -o-transition: opacity 0.2s ease-in-out;
   transition: opacity 0.2s ease-in-out;
+  -webkit-transition: bottom 0.2s ease-in-out;
+  -moz-transition: bottom 0.2s ease-in-out;
+  -o-transition: bottom 0.2s ease-in-out;
+  transition: bottom 0.2s ease-in-out;
 }
 .bottom-img {
-  display: block;
   background: url('/img/hands.jpg') no-repeat bottom scroll;
   background-size: cover;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-  text-decoration: none;
   position: absolute;
   top: 50%;
   bottom: 0;
   width: 100%;
   opacity: .6;
+  text-decoration: none;
   -webkit-transition: opacity 0.2s ease-in-out;
   -moz-transition: opacity 0.2s ease-in-out;
   -o-transition: opacity 0.2s ease-in-out;
   transition: opacity 0.2s ease-in-out;
+  -webkit-transition: top 0.2s ease-in-out;
+  -moz-transition: top 0.2s ease-in-out;
+  -o-transition: top 0.2s ease-in-out;
+  transition: top 0.2s ease-in-out;
 }
-.top-img:hover,
-.bottom-img:hover {
-  cursor: pointer;
+.top-img.host-form-active {
+  bottom: 0;
   opacity: 1;
 }
+.top-img.host-form-active:before {
+  background: rgba(0, 0, 0, 0.5);
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.top-img.host-form-active .subtitle,
 .top-img:hover .subtitle,
 .bottom-img:hover .subtitle {
   display: block;
 }
+.top-img.host-form-active .cant-stop,
+.bottom-img.after-transition,
 .top-img:hover .cant-stop,
 .bottom-img:hover .cant-stop {
   display: none;
+}
+.bottom-img.host-form-active {
+  top: 100%;
+}
+.top-img:hover.host-form-active {
+  cursor: default;
+}
+.subtitle:hover {
+  cursor: pointer;
+}
+.top-img:hover,
+.bottom-img:hover {
+  opacity: 1;
 }
 .black-bg {
   background: #000;
@@ -74,7 +110,7 @@ body {
   right: 0;
 }
 
-/* Headers & Text */
+/*** Headers & Text ***/
 .header-sans {
   color: #FFF;
   font: 10em/1em 'Gudea', sans-serif;
@@ -101,11 +137,8 @@ body {
   text-shadow: 1px 1px 5px #333;
   text-transform: lowercase;
 }
-.test {
-  font: 6em/1em 'Gudea', sans-serif;
-}
 
-/* Button */
+/*** Buttons ***/
 .sign-in-btn {
   background: #3D95CE;
   border: 0;
@@ -124,9 +157,6 @@ body {
   -moz-transition: background 0.2s ease-in-out;
   -o-transition: background 0.2s ease-in-out;
   transition: background 0.2s ease-in-out;
-}
-.sign-in-btn:hover {
-  background: #555;
 }
 .create-btn {
   background: #3D95CE;
@@ -147,11 +177,9 @@ body {
   -o-transition: background 0.2s ease-in-out;
   transition: background 0.2s ease-in-out;
 }
+.sign-in-btn:hover,
 .create-btn:hover {
   background: #555;
-}
-.create-subtitle {
-  font-size: .6em;
 }
 
 /* Nav */
@@ -315,22 +343,13 @@ nav {
   transition: background 0.2s ease-in-out;
 }
 .view-btn:hover {
-	background: #000;
+	background: #333;
+  cursor: pointer;
 }
 
 .party img {
 	height: 250px;
 	width: 250px;
-}
-
-@media (max-device-width: 600px) {
-  .header-sans {
-    font-size: 15em;
-  }
-  .sign-in-btn {
-    font-size: 4em;
-    padding: 20px 40px;
-  }
 }
 
 /* View Party */
@@ -545,4 +564,15 @@ nav {
 	margin: 0 auto;
 	width: 70%;
 	background-color: rgb(43,194,83);
+}
+
+/*** Media Queries ***/
+@media (max-device-width: 600px) {
+  .header-sans {
+    font-size: 15em;
+  }
+  .sign-in-btn {
+    font-size: 4em;
+    padding: 20px 40px;
+  }
 }
