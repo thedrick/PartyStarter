@@ -17,6 +17,13 @@ Ember.Model.reopenClass({
 PartyStarter.Party = Ember.Model.extend({
   objectId: Ember.attr()
 , date: Ember.attr(Date)
+, timeUntil: Ember.computed(function() {
+    var then = moment(this.get('date'));
+    if (!!then) {
+      return then.fromNow();
+    }
+    return "never";
+  })
 , name: Ember.attr()
 , description: Ember.attr()
 , location: Ember.attr()
