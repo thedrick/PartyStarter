@@ -7,13 +7,26 @@
     <link href="style.css" rel="stylesheet" type="text/css" />
   </head>
   <body style="background: url('img/large-solo.jpg') no-repeat center fixed;">
-    <div class="get-started">
-      <span class="header-sans center-block">Get the Party Started</span>
-      
-      <a class="sign-in-btn center-block js-venmo-sign-in" href="#">Sign in with Venmo</a>
-    </div>
+    <script type="text/x-handlebars">
+      {{ outlet }}
+    </script>
 
     <script type="text/javascript" src="/js/jquery.js"></script>
+    <script type="text/javascript" src="/js/handlebars.js"></script>
+    <script type="text/javascript" src="/js/ember.js"></script>
+    <script type="text/javascript" src="/js/ember-data.js"></script>
+    <script src="http://www.parsecdn.com/js/parse-1.2.10.min.js"></script>
+    <script type="text/javascript" src="/js/application.js"></script>
+    <script type="text/javascript" src="/js/party.js"></script>
+    <script type="text/javascript" src="/js/router.js"></script>
     <script type="text/javascript" src="/js/venmo.js"></script>
+
+    <script type="text/x-handlebars" data-template-name="index">
+      <div class="get-started">
+        <span class="header-sans center-block">Get the Party Started</span>
+        
+        <a class="sign-in-btn center-block" href="#" {{ action 'venmoSignIn'}}>Sign in with Venmo</a>
+      </div>
+    </script>
   </body>
 </html>

@@ -1,0 +1,2 @@
+PartyStarter.Router.map(function() {
+});
