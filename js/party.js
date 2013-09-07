@@ -49,6 +49,49 @@ $(document).ready(function() {
     });
   }
 
+<a>
+        <div class="party">
+          <div class="caption">
+            <div class="title">Party Name</div>
+            <div class="info">
+              <div class="days-info">
+                <span class="days1">30</span><br />
+                <span class="days2">days left</span>
+              </div>
+              <div class="money-info">
+                <span class="money1">$800</span><br />
+                <span class="money2">needed</span>
+              </div>
+            </div>
+          </div>
+          <img src="img/test_party_pic.jpg" />
+        </div>
+      </a>
+
+  window.loadParties() {
+    var query = new Parse.Query(Party);
+    var partiesElt = $(".parties");
+    query.find({
+      success: function(parties) {
+        for (var i = 0; i < parties.length; i++) {
+          var party = parties[i];
+          var link = $("<a>");
+          var partyObj = $("<div>").class("party").append($("<img>").attr("src", "img/test_party_pic.jpg"));
+          var title = $("<div>").class("title").html(party.name);
+          var info = $("<div>").class("days-info");
+          var days1 = $("<span>").class("days1").html(30);
+          var days2 = $("<span>").class("days2").html("days left");
+          info.append(days1, days2);
+          var moneyInfo = $("<div>").class("money-info");
+          var money1 = $("<span>").class("money1").html(party.totalCost);
+        }
+      },
+      error: function(error) {
+        console.log("Error fetching parties: ", error);
+      }
+    });
+  }
+
   $('#createPartyButton').on('click', window.createParty);
   $('.js-venmo-sign-in').on('click', Venmo.auth);
 });
