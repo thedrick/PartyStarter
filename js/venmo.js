@@ -1,5 +1,4 @@
 var Venmo = (function (Venmo) {
-
   Venmo.auth = function() {
     var options = {
       client_id: "1353"

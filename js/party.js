@@ -104,5 +104,4 @@ $(document).ready(function() {
   }
 
   $('#createPartyButton').on('click', window.createParty);
-  $('.js-venmo-sign-in').on('click', Venmo.auth);
 });
