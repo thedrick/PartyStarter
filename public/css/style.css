@@ -29,10 +29,14 @@ body {
   top: 0;
   bottom: 50%;
   opacity: .6;
+  -webkit-transition: opacity 0.2s ease-in-out;
+  -moz-transition: opacity 0.2s ease-in-out;
+  -o-transition: opacity 0.2s ease-in-out;
+  transition: opacity 0.2s ease-in-out;
 }
 .bottom-img {
   display: block;
-  background: url('/img/hands.jpg') no-repeat bottom fixed; background-size: cover;
+  background: url('/img/hands.jpg') no-repeat bottom scroll;
   background-size: cover;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -43,6 +47,10 @@ body {
   bottom: 0;
   width: 100%;
   opacity: .6;
+  -webkit-transition: opacity 0.2s ease-in-out;
+  -moz-transition: opacity 0.2s ease-in-out;
+  -o-transition: opacity 0.2s ease-in-out;
+  transition: opacity 0.2s ease-in-out;
 }
 .top-img:hover,
 .bottom-img:hover {
@@ -88,6 +96,7 @@ body {
   color: #FFF;
   font: 6em/1em 'Source Sans Pro', sans-serif;
   display: none;
+  opacity: .8;
   padding-top: 130px;
   text-shadow: 1px 1px 5px #333;
   text-transform: lowercase;
