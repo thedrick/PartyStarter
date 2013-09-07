@@ -9,9 +9,9 @@ var parseAdapter = Ember.ParseAdapter.create({
 
 Ember.Model.reopenClass({
   // Sets the primary key to equal parse's primary key field name
-  primaryKey: 'objectId',
-  // Use the adapter for all model classes
-  adapter: parseAdapter
+  primaryKey: 'objectId'
+, collectionKey: 'results'
+, adapter: parseAdapter
 });
 
 PartyStarter.Party = Ember.Model.extend({
