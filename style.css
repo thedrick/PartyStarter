@@ -6,11 +6,23 @@ body {
   -o-background-size: cover;
   color: #333;
   margin: 0;
+  width: 100%;
 }
 .center-block {
   display: block;
   margin: 0 auto;
   text-align: center;
+}
+.header-img {
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  height: 320px;
+  width: 100%;
+  -webkit-box-shadow: 0 0 6px #666;
+  -moz-box-shadow: 0 0 6px #666;
+  box-shadow: 0 0 6px #666;
 }
 
 /* Headers & Text */
@@ -18,8 +30,16 @@ body {
   color: #FFF;
   font: 10em/1em 'Gudea', sans-serif;
   font-style: italic;
-  font-weight: 200;
-  padding-top: 150px;
+  padding-top: 12%;
+  text-shadow: 1px 1px 5px #333;
+  text-transform: uppercase;
+}
+.cant-stop {
+  color: #FFF;
+  font: 8em/1em 'Gudea', sans-serif;
+  font-style: italic;
+  opacity: .8;
+  padding-top: 80px;
   text-shadow: 1px 1px 5px #333;
   text-transform: uppercase;
 }
@@ -46,4 +66,40 @@ body {
 }
 .sign-in-btn:hover {
   background: #555;
+}
+
+/* Nav */
+nav {
+  background: #222;
+  height: 48px;
+  -webkit-box-shadow: 0 0 8px #333;
+  -moz-box-shadow: 0 0 8px #333;
+  box-shadow: 0 0 8px #333;
+}
+.logo {
+  color: #FFF;
+  display: block;
+  font: 1.8em/1em 'Gudea', sans-serif;
+  font-style: italic;
+  float: left;
+  margin: 8px 0 0 12px;
+}
+.links {
+  display: block;
+  float: right;
+  list-style-type: none;
+  margin: 14px 10px 0 0;
+}
+.links li {
+  display: inline-block;
+  font: 1em/1em 'Source Sans Pro', sans-serif;
+  font-weight: 200;
+  padding: 0 5px;
+}
+.links li a {
+  color: #FFF;
+  text-decoration: none;
+}
+.links li a:hover {
+  color: #CCC;
 }
