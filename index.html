@@ -119,12 +119,12 @@
         <div class="scale-wrapper">
           <span class="amount left-price">$0</span>
           <div class="scale">
-            <span style="width: 75%"></span>
+            <span></span>
           </div>
           <span class="amount right-price">${{totalCost}}</span>
         </div>
         <div class="donate">
-          <input class="donate-input" placeholder="$1.00 (Minimum Donation)" name="donation"></input>
+          	<input class="donate-input" {{bind-attr placeholder=minDonation}}  name="donation"></input>
           <a onclick="loadScale();"><div class="donate-btn create-btn">Pitch In</div></a>
         </div>
         <div class="invite">
