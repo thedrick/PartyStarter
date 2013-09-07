@@ -537,6 +537,10 @@ nav {
 	padding-bottom: 40px;
 }
 
+.invite a{
+	text-decoration: none;
+}
+
 .invite-btn {
 	margin: 0 auto;
 	width: 70%;

@@ -3,6 +3,25 @@
 		<title>Partayyyy</title>
 		<link href="public/css/style.css" rel="stylesheet" type="text/css" />
 		<link href="http://fonts.googleapis.com/css?family=Gudea:400,400italic|Lato:300|Source+Sans+Pro:200,400" rel="stylesheet" type="text/css">
+		
+		<script src="public/js/party.js"></script>
+		<script>
+			$(window).load(function({
+				var party = getParty("partyid");
+				var name = party.get("name");
+				var location = party.get("location");
+				var description = party.get("description");
+				var date = party.get("date");
+				$(".party-name .center-block").html(name);
+				$(".party-desc .center-block").html(description);
+				$("#location").html(location);
+				$("#date").html(date);
+				$(".right-price").html(amountNeeded);
+				//get pics
+				//get creator info
+				//get amount made and amount needed
+			});
+		</script>
 	</head>
 	<body>
 	    <nav>
@@ -12,20 +31,20 @@
 	      </ul>
 	    </nav>
 		<div class="header-img" style="background: url('public/img/hands.jpg') no-repeat top fixed;">
-			<span class="party-name center-block">PARTY NAME</span>
+			<span class="party-name center-block"></span>
 			</div>
 		<div id="party-info">
 			<span class="party-desc center-block">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</span>
 			<div class="party-info-section">
-				<span class="info-title">Who?</span>
+				<span class="info-title" id="creator">Who?</span>
 				<div class="info-pic"></div>
 			</div>
 			<div class="party-info-section">
-				<span class="info-title">Where?</span>
+				<span class="info-title" id="location">Where?</span>
 				<div class="info-pic"></div>
 			</div>
 			<div class="party-info-section">
-				<span class="info-title">When?</span>
+				<span class="info-title" id="date">When?</span>
 				<div class="info-pic"></div>
 			</div>
 			<div id="money-info-section">
@@ -38,14 +57,15 @@
 				</div>
 				<div class="donate">
 					<input class="donate-input" placeholder="$0.00" name="donation"></input>
-					<div class="donate-btn create-btn">Donate!</div>
+					<a href="#"><div class="donate-btn create-btn">Pitch In</div></a>
 				</div>
 				<div class="invite">
-					<div class="invite-btn create-btn">Invite Your Crew</div>
+					<a href="#"><div class="invite-btn create-btn">Invite Your Crew</div></a>
 				</div>
 			</div>
 		</div>
 		
+		<script src="public/js/jquery.js"></script>
 		<script>
 		$(".scale > span").each(function() {
 			$(this)
