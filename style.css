@@ -13,6 +13,7 @@ body {
   margin: 0 auto;
   text-align: center;
 }
+
 .header-img {
   background-size: cover;
   -webkit-background-size: cover;
@@ -270,4 +271,28 @@ nav {
     font-size: 4em;
     padding: 20px 40px;
   }
+}
+
+/* View Party */
+.party-name {
+    color: #FFF;
+    font: 3.2em 'Gudea', sans-serif;
+    font-style: italic;
+    opacity: .8;
+    padding-top: 30px;
+    text-shadow: 1px 1px 5px #333;
+    text-transform: uppercase;
+	text-align: center;
+}
+
+.party-desc{
+    color: #FFF;
+    font: 1em 'Gudea', sans-serif;
+    font-style: italic;
+    opacity: .8;
+    padding-top: 30px;
+    text-shadow: 1px 1px 5px #333;
+	text-align: center;
+	width: 90%;
+	line-height: 1.3em;
 }
