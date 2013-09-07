@@ -172,8 +172,9 @@ nav {
 
 /* Feed */
 .feed {
-	width: 80%;
+	width: 100%;
 	margin: 0 auto;
+	padding-bottom: 20px;
 }
 
 .heading {
@@ -183,23 +184,31 @@ nav {
 	float: left;
 	color: #000;
 	display: block;
-	margin: 25px 0 0 12px;
+	margin: 25px 0 0 25px;
 	width: 100%;
 	margin-bottom: 30px;
+	text-align: center;
+
 }
 
 .parties {
-	width: 100%;
-	height: 400px;
-	margin-top: 20px auto;
-  text-align: center;
-  white-space: nowrap;
-  overflow: auto;
+	width: 90%;
+	margin-top: 20px;
+  	text-align: center;
+ 	white-space: nowrap;
+  	overflow: auto;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .party {
+	position: relative;
 	display: inline-block;
 	margin: 0 10px 30px;
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all: 0.2s ease-in-out;
 }
 
 .caption {
@@ -212,13 +221,25 @@ nav {
 	font-weight: 200;
 	margin: 0 auto;
 	text-align: center;
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all: 0.2s ease-in-out;
+}
+
+.party:hover .caption{
+	display: inline-block;
+	width: 250px;
+	height: 250px;
 }
 
 .title {
 	padding-top: 20px;
 	font-size: 1.2em;
 	font-weight: 150;
-	width: 90%;
+	width: 80%;
+	max-width: 80%;
+	white-space: normal;
 	text-align: center;
 	margin: 0 auto;
 }
@@ -226,7 +247,7 @@ nav {
 .info {
 	position: absolute;
 	bottom: 0;
-	padding-bottom: 30px;
+	padding-bottom: 40px;
 	width: 100%;
 }
 
@@ -278,7 +299,7 @@ nav {
 	background: #000;
 }
 
-img {
+.party img {
 	height: 250px;
 	width: 250px;
 }
