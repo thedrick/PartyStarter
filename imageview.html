@@ -1,0 +1,37 @@
+<html>
+	<head>
+		<title>IMAGES HERE</title>
+		<link href="imageviewstyle.css" rel="stylesheet" type="text/css">
+	</head>
+
+	<body>
+		<a href="http://www.google.com">
+		<div class="image">
+			<div class="caption">hey there</div>
+			<img src="img/test_party_pic.jpg" />
+		</div>
+		</a>
+	
+		<script src="js/jquery.js"></script>
+		<script>
+		$('.image').mouseenter(function() {
+			var image = $(this).find('img'),
+			caption = $(this).find('.caption');
+		
+			caption.width(image.width());
+			caption.height(image.height());
+			caption.fadeIn();
+		}).mouseleave(function() {
+			var image = 
+			$(this).find('img'),
+			caption = $(this).find('.caption');
+		
+			caption.width(image.width());
+			caption.height(image.height());
+			caption.fadeOut();
+		});
+	
+		</script>
+
+	</body>
+</html>
