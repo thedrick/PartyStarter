@@ -61,6 +61,37 @@
       </form>
     </script>
 
+    <script type="text/x-handlebars" data-template-name="parties">
+      <nav>
+        <span class="logo">PartyStarter</span>
+        <ul class="links">
+          <li><a href="#">Logout</a></li>
+        </ul>
+      </nav>
+    <div class="feed">
+      <span class="heading">Popular</span>
+      <div class="parties">
+        {{#each parties}}
+        <a>
+          <div class="party" id="party1">
+            <div class="caption">
+              <div class="title">{{name}}</div>
+              <div class="info">
+                <div class="days-info">
+                  <span class="days1">{{days}}</span>
+                  <span class="days2">days left</span>
+                </div>
+                <div class="money-info">
+                  <span class="money1">{{totalCost}} </span>
+                  <span class="money2">needed</span>
+                </div>
+              </div>
+            </div>
+            <img {{bind-attr src=photo}} />
+          </div>
+        </a>
+        {{/each}}
+      </div>
     </script>
   </body>
 </html>

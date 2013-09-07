@@ -13,11 +13,16 @@ PartyStarter.IndexController = Ember.Controller.extend({
 PartyStarter.PartiesController = Ember.Controller.extend({
   parties: [{
     "name" : "My Party",
-    "location" : "My house",
     "date" : "Monday 9:00 PM",
-    "photo" : "public/img/test_party_pic.jpg"
+    "days" : 20,
+    "totalCost" : 300,
+    "photo" : "/img/test_party_pic.jpg"
   },
   {
-
+    "name" : "Another Party",
+    "date" : "Thursday 11:00 PM",
+    "days" : 2,
+    "totalCost" : 80,
+    "photo" : "/img/test_party_pic.jpg"
   }]
 });
