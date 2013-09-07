@@ -198,6 +198,7 @@ nav {
 .days1, .money1 {
 	font-size: 2.7em;
 	text-align: center;
+	display: block;
 }
 
 .days2, .money2 {
