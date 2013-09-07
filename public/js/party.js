@@ -136,7 +136,7 @@ $(document).ready(function() {
 
   window.addAttendee = function() {
     var user = Parse.User.current();
-    var donation = $("#donate-input");
+    var donation = $(".donate-input").val();
     if (donation.length == 0) {
       alert("You must enter a donation amount!");
       return;
@@ -169,6 +169,9 @@ function initializePlaces() {
       new google.maps.LatLng(40.412189,-80.0457),
       new google.maps.LatLng(40.519802,-79.871635));
   var locationInput = document.getElementById('createPartyLocation');
+  if (locationInput == null) {
+    return;
+  }
 
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function(position) {

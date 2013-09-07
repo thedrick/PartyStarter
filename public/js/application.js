@@ -16,12 +16,12 @@ Ember.Model.reopenClass({
 
 PartyStarter.Party = Ember.Model.extend({
   objectId: Ember.attr()
-, date: Ember.attr()
+, date: Ember.attr(Date)
 , name: Ember.attr()
 , description: Ember.attr()
 , location: Ember.attr()
-, minDonation: Ember.attr()
-, totalCost: Ember.attr()
+, minDonation: Ember.attr(Number)
+, totalCost: Ember.attr(Number)
 , photoUrl: Ember.attr()
 });
 
@@ -56,19 +56,3 @@ PartyStarter.WelcomeController = Ember.Controller.extend({
   }
 });
 
-PartyStarter.PartiesController = Ember.Controller.extend({
-  parties: [{
-    "name" : "My Party",
-    "date" : "Monday 9:00 PM",
-    "days" : 20,
-    "totalCost" : 300,
-    "photo" : "/img/test_party_pic.jpg"
-  },
-  {
-    "name" : "Another Party",
-    "date" : "Thursday 11:00 PM",
-    "days" : 2,
-    "totalCost" : 80,
-    "photo" : "/img/test_party_pic.jpg"
-  }]
-});
