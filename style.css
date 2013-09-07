@@ -103,3 +103,19 @@ nav {
 .links li a:hover {
   color: #CCC;
 }
+
+/* Feed */
+.feed {
+	width: 80%;
+	margin: 0 auto;
+}
+
+.heading {
+	font: 3em 'Gudea', sans-serif;
+	font-style: italic;
+	font-weight: 100;
+	float: left;
+	color: #000;
+	display: block;
+	margin: 25px 0 0 12px;
+}
