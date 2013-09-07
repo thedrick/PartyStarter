@@ -1,0 +1,14 @@
+{
+    "applications": {
+        "PartyStarter": {
+            "applicationId": "vpkqQoxmJU4HqOx57O81id3RTSwuKTbGJprxGgQc", 
+            "masterKey": "qcnpgBTAiS62Ppw63Is0D6WccK6mlWAJhBiLydsT"
+        }, 
+        "_default": {
+            "link": "PartyStarter"
+        }
+    }, 
+    "global": {
+        "parseVersion": "1.2.10"
+    }
+}

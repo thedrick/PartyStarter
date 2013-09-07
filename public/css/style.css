@@ -1,12 +1,11 @@
 body {
   background: #E3E3E3;
-  background-size: cover;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
   color: #333;
   margin: 0;
   width: 100%;
+}
+.landing-page {
+  background: url('/img/large-solo.jpg') no-repeat center fixed;
 }
 .center-block {
   display: block;
@@ -14,16 +13,51 @@ body {
   text-align: center;
 }
 
-.header-img {
+.top-img {
   background-size: cover;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-  height: 300px;
   width: 100%;
   -webkit-box-shadow: 4px 0 4px #555;
   -moz-box-shadow: 4px 0 4px #555;
   box-shadow: 4px 0 4px #555;
+  position: absolute;
+  top: 0;
+  bottom: 50%;
+  opacity: .5;
+}
+.bottom-img {
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  position: absolute;
+  top: 50%;
+  bottom: 0;
+  width: 100%;
+  opacity: .5;
+}
+.top-img:hover,
+.bottom-img:hover {
+  cursor: pointer;
+  opacity: 1;
+}
+.top-img:hover .subtitle,
+.bottom-img:hover .subtitle {
+  display: block;
+}
+.top-img:hover .cant-stop,
+.bottom-img:hover .cant-stop {
+  display: none;
+}
+.black-bg {
+  background: #000;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
 /* Headers & Text */
@@ -40,9 +74,19 @@ body {
   font: 8em/1em 'Gudea', sans-serif;
   font-style: italic;
   opacity: .8;
-  padding-top: 52px;
+  padding-top: 120px;
   text-shadow: 1px 1px 5px #333;
   text-transform: uppercase;
+}
+.subtitle {
+  color: #FFF;
+  font: 6em/1em 'Source Sans Pro', sans-serif;
+  display: none;
+  padding-top: 120px;
+  text-shadow: 1px 1px 5px #333;
+}
+.test {
+  font: 6em/1em 'Gudea', sans-serif;
 }
 
 /* Button */
@@ -63,7 +107,7 @@ body {
   -webkit-transition: background 0.2s ease-in-out;
   -moz-transition: background 0.2s ease-in-out;
   -o-transition: background 0.2s ease-in-out;
-  transition: background: 0.2s ease-in-out;
+  transition: background 0.2s ease-in-out;
 }
 .sign-in-btn:hover {
   background: #555;
@@ -85,7 +129,7 @@ body {
   -webkit-transition: background 0.2s ease-in-out;
   -moz-transition: background 0.2s ease-in-out;
   -o-transition: background 0.2s ease-in-out;
-  transition: background: 0.2s ease-in-out;
+  transition: background 0.2s ease-in-out;
 }
 .create-btn:hover {
   background: #555;
@@ -252,7 +296,7 @@ nav {
   -webkit-transition: background 0.2s ease-in-out;
   -moz-transition: background 0.2s ease-in-out;
   -o-transition: background 0.2s ease-in-out;
-  transition: background: 0.2s ease-in-out;
+  transition: background 0.2s ease-in-out;
 }
 .view-btn:hover {
 	background: #000;
