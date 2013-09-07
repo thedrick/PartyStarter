@@ -1,39 +1,31 @@
 #createPartyForm {
+  color: #FFF;
   margin: 20px auto;
-  padding: 30px 20px;
-  max-width: 500px;
-
-  border-radius: 6px;
-  border: 1px solid #555;
-
-  background: rgb(255,255,255); /* Old browsers */
-  background: -moz-linear-gradient(top,  rgba(255,255,255,1) 0%, rgba(247,247,247,1) 100%); /* FF3.6+ */
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,1)), color-stop(100%,rgba(247,247,247,1))); /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(247,247,247,1) 100%); /* Chrome10+,Safari5.1+ */
-  background: -o-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(247,247,247,1) 100%); /* Opera 11.10+ */
-  background: -ms-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(247,247,247,1) 100%); /* IE10+ */
-  background: linear-gradient(to bottom,  rgba(255,255,255,1) 0%,rgba(247,247,247,1) 100%); /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f7f7f7',GradientType=0 ); /* IE6-9 */
+  max-width: 600px;
+  height: 0;
+  overflow: hidden;
+  -webkit-transition: height 0.2s ease-in-out;
+  -moz-transition: height 0.2s ease-in-out;
+  -o-transition: height 0.2s ease-in-out;
+  transition: height 0.2s ease-in-out;
 }
-
-.createPartyTitle {
-  display: block;
-  margin: 10px auto;
-  font: 32px 'HelveticaNeue-Light';
-  text-align: center;
+.top-img.host-form-active #createPartyForm {
+  height: 500px;
 }
 
 #createPartyForm input, textarea {
   display: inline-block;
   width: 280px;
-  font: 20px 'HelveticaNeue-Light';
-  margin: 10px auto;
-  padding: 5px;
+  font: 16px 'Source Sans Pro', sans-serif;
+  font-weight: 200;
+  margin: 16px auto 0;
+  padding: 2px;
   outline: none;
+  opacity: .9;
 }
 
 #createPartyForm textarea {
-  height: 75px;
+  height: 50px;
   resize: none;
 }
 
@@ -45,12 +37,14 @@
   overflow: visible;
 }
 
+
 #createPartyForm .inputlabel {
   display: inline-block;
   width: 200px;
-  font: 20px 'HelveticaNeue-Light';
+  font: 18px 'Source Sans Pro', sans-serif;
   vertical-align: top;
   margin-top: 18px;
+  text-shadow: 0px 0px 5px #333;
 }
 
 #createPartyForm .inputlabel:after {
@@ -58,16 +52,25 @@
 }
 
 #createPartyForm .view-btn {
-  display: block;
+  font-size: 20px;
+  margin-top: 18px;
+  padding: 6px 0;
+  width: 485px;
+
 }
 
 .pac-item {
-  font: 16px 'HelveticaNeue-Light';
+  font: 18px 'Source Sans Pro', sans-serif;
+  font-weight: 200;
   padding: 5px 0;
 }
 
 input[type="text"] {
+  color: #FFF;
   border: none;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid #FFF;
   background: none;
+}
+input[type="file"] {
+  line-height: 18px !important;
 }
