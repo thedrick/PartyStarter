@@ -30,6 +30,10 @@ PartyStarter.Party = Ember.Model.extend({
 , minDonation: Ember.attr(Number)
 , totalCost: Ember.attr(Number)
 , photoUrl: Ember.attr()
+, headerBg: Ember.computed(function() {
+    var headerImages = ['hands.jpg', 'lawn-party.jpg', 'party.jpg', 'pour.jpg', 'sitting.jpg', 'more-beer.jpg', 'solo-cups.jpg'];
+    return "background: url('../img/" + headerImages[Math.floor(Math.random()*headerImages.length)] + "') no-repeat top center scroll;";
+  })
 });
 
 PartyStarter.Party.className = 'Party';
