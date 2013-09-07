@@ -23,6 +23,7 @@ PartyStarter.Party = Ember.Model.extend({
 , minDonation: Ember.attr()
 , totalCost: Ember.attr()
 });
+
 PartyStarter.Party.className = 'Party';
 
 PartyStarter.IndexController = Ember.Controller.extend({
@@ -32,6 +33,7 @@ PartyStarter.IndexController = Ember.Controller.extend({
     }
   }
 });
+
 
 PartyStarter.PartiesController = Ember.Controller.extend({
   parties: [{

@@ -5,7 +5,7 @@ PartyStarter.Router.reopen({
 PartyStarter.Router.map(function() {
   this.route('welcome');
   this.route('parties');
-  this.route('party');
+  this.resource('party', { path: '/party/:party_id' });
   this.route('oauth', { path: '/oauth/venmo' });
 });
 
@@ -15,6 +15,12 @@ PartyStarter.IndexRoute = Ember.Route.extend({
   },
   deactivate: function() {
     Ember.$('body').removeClass('landing-page');
+  }
+});
+
+PartyStarter.PartyRoute = Ember.Route.extend({
+  model: function(params) {
+    return PartyStarter.Party.find(params.party_id);
   }
 });
 
