@@ -14,7 +14,7 @@ body {
 }
 .top-img {
   display: block;
-  background: url('img/bottles.jpg') no-repeat center fixed;
+  background: url('/img/bottles.jpg') no-repeat center fixed;
   background-size: cover;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -31,7 +31,7 @@ body {
 }
 .bottom-img {
   display: block;
-  background: url('img/hands.jpg') no-repeat bottom fixed; background-size: cover;
+  background: url('/img/hands.jpg') no-repeat bottom fixed; background-size: cover;
   background-size: cover;
   -webkit-background-size: cover;
   -moz-background-size: cover;
