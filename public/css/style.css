@@ -4,6 +4,9 @@ body {
   margin: 0;
   width: 100%;
 }
+.landing-page {
+  background: url('/img/large-solo.jpg') no-repeat center fixed;
+}
 .center-block {
   display: block;
   margin: 0 auto;
@@ -11,6 +14,7 @@ body {
 }
 .top-img {
   display: block;
+  background: url('img/bottles.jpg') no-repeat center fixed;
   background-size: cover;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -27,6 +31,7 @@ body {
 }
 .bottom-img {
   display: block;
+  background: url('img/hands.jpg') no-repeat bottom fixed; background-size: cover;
   background-size: cover;
   -webkit-background-size: cover;
   -moz-background-size: cover;

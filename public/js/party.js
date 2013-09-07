@@ -1,5 +1,6 @@
+Parse.initialize("vpkqQoxmJU4HqOx57O81id3RTSwuKTbGJprxGgQc", "mXbf5O1xhVSjlMb51tjuiXxPI8KOc6jd65upOj3O");
+
 $(document).ready(function() {
-  Parse.initialize("vpkqQoxmJU4HqOx57O81id3RTSwuKTbGJprxGgQc", "mXbf5O1xhVSjlMb51tjuiXxPI8KOc6jd65upOj3O");
 
   var Party = Parse.Object.extend("Party");
 
@@ -105,3 +106,28 @@ $(document).ready(function() {
 
   $('#createPartyButton').on('click', window.createParty);
 });
+
+function initializePlaces() {
+  var defaultBounds = new google.maps.LatLngBounds(
+      new google.maps.LatLng(40.412189,-80.0457),
+      new google.maps.LatLng(40.519802,-79.871635));
+  var locationInput = document.getElementById('createPartyLocation');
+
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function(position) {
+      console.log(position);
+      var center = new google.maps.LatLng(position.coords.latitude, position.coords.longitude)
+      var bounds = new google.maps.Circle({ center: center, radius: 800 }).getBounds();
+      var options = {
+        bounds: bounds,
+        types: []
+      }
+      autocompleteLocation = new google.maps.places.Autocomplete(locationInput, options);
+    });
+  } else {
+    console.log("No geolocation");
+  }
+    
+}
+
+google.maps.event.addDomListener(window, 'load', initializePlaces);

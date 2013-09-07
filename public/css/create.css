@@ -61,6 +61,11 @@
   display: block;
 }
 
+.pac-item {
+  font: 16px 'HelveticaNeue-Light';
+  padding: 5px 0;
+}
+
 input[type="text"] {
   border: none;
   border-bottom: 1px solid black;
