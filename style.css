@@ -235,3 +235,13 @@ img {
 	height: 250px;
 	width: 250px;
 }
+
+@media (max-device-width: 600px) {
+  .header-sans {
+    font-size: 15em;
+  }
+  .sign-in-btn {
+    font-size: 4em;
+    padding: 20px 40px;
+  }
+}
