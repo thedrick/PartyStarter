@@ -154,6 +154,7 @@ nav {
 	margin-bottom: 20px;
 	margin-left: auto;
 	margin-right: auto;
+	min-width: 800px;
 }
 
 .party {
