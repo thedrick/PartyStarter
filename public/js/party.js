@@ -154,6 +154,7 @@ $(document).ready(function() {
       $('.bottom-img').addClass('after-transition');
       }, 200);
     };
+    $('#createPartyName').focus()
     
   });
 

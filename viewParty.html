@@ -3,25 +3,6 @@
 		<title>Partayyyy</title>
 		<link href="public/css/style.css" rel="stylesheet" type="text/css" />
 		<link href="http://fonts.googleapis.com/css?family=Gudea:400,400italic|Lato:300|Source+Sans+Pro:200,400" rel="stylesheet" type="text/css">
-		
-		<script src="public/js/party.js"></script>
-		<script>
-			$(window).load(function({
-				var party = getParty("partyid");
-				var name = party.get("name");
-				var location = party.get("location");
-				var description = party.get("description");
-				var date = party.get("date");
-				$(".party-name .center-block").html(name);
-				$(".party-desc .center-block").html(description);
-				$("#location").html(location);
-				$("#date").html(date);
-				$(".right-price").html(amountNeeded);
-				//get pics
-				//get creator info
-				//get amount made and amount needed
-			});
-		</script>
 	</head>
 	<body>
 	    <nav>
@@ -57,24 +38,28 @@
 				</div>
 				<div class="donate">
 					<input class="donate-input" placeholder="$0.00" name="donation"></input>
-					<a href="#"><div class="donate-btn create-btn">Pitch In</div></a>
+					<a onclick="loadScale();"><div class="donate-btn create-btn">Pitch In</div></a>
 				</div>
 				<div class="invite">
 					<a href="#"><div class="invite-btn create-btn">Invite Your Crew</div></a>
 				</div>
 			</div>
 		</div>
-		
 		<script src="public/js/jquery.js"></script>
+		<script src="public/js/party.js"></script>
 		<script>
-		$(".scale > span").each(function() {
-			$(this)
-			.data("origWidth", $(this).width())
-			.width(0)
-			.animate({
-				width: $(this).data("origWidth")
-			}, 1200);
-		});
+		$(window).load(loadScale);
+		
+		function loadScale() {
+			$(".scale > span").each(function() {
+				$(this)
+				.data("origWidth", $(this).width())
+				.width(0)
+				.animate({
+					width: $(this).data("origWidth")
+				}, 1200);
+			});
+		}
 		</script>
 	</body>
 </html>

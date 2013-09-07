@@ -101,10 +101,10 @@
         </ul>
       </nav>
     <div class="header-img" style="background: url('/img/hands.jpg') no-repeat top fixed;">
-      <span class="party-name center-block"></span>
+      <span class="party-name center-block">{{name}}</span>
       </div>
     <div id="party-info">
-      <span class="party-desc center-block">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</span>
+      <span class="party-desc center-block">{{description}}</span>
       <div class="party-info-section">
         <span class="info-title" id="creator">Who?</span>
         <div class="info-pic"></div>
@@ -127,7 +127,7 @@
         </div>
         <div class="donate">
           <input class="donate-input" placeholder="$0.00" name="donation"></input>
-          <a href="#"><div class="donate-btn create-btn">Pitch In</div></a>
+          <a onclick="loadScale();"><div class="donate-btn create-btn">Pitch In</div></a>
         </div>
         <div class="invite">
           <a href="#"><div class="invite-btn create-btn">Invite Your Crew</div></a>
