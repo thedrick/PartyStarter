@@ -528,3 +528,17 @@ nav {
 	float: right;
 	height: 20px;
 }
+
+.invite {
+	margin: 0 auto;
+	width: 70%;
+	text-align: center;
+	margin-top: 60px;
+	padding-bottom: 40px;
+}
+
+.invite-btn {
+	margin: 0 auto;
+	width: 70%;
+	background-color: rgb(43,194,83);
+}
