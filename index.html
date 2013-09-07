@@ -22,7 +22,6 @@
     <script type="text/javascript" src="/js/ember-model.js"></script>
     <script type="text/javascript" src="/js/parse-adapter.js"></script>
     <script type="text/javascript" src="/js/application.js"></script>
-    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=true"></script>
     <script type="text/javascript" src="/js/party.js"></script>
     <script type="text/javascript" src="/js/router.js"></script>
     <script type="text/javascript" src="/js/venmo.js"></script>
@@ -39,7 +38,7 @@
       <div class="black-bg">
         <div class="top-img">
           <span class="cant-stop center-block">We Can't Stop</span>
-          <span class="subtitle center-block">Host a Party</span>
+          <span class="subtitle center-block" {{ action 'toggleCreateForm' }}>Host a Party</span>
 
           <form id="createPartyForm" action="javascript:createParty();">
             <div class="inputrow"><span class="inputlabel">Event Name</span><input type="text" name="name" id="createPartyName"></div>
