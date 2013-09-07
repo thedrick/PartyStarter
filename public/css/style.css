@@ -416,11 +416,16 @@ nav {
 }
 
 .info-pic {
-	display: block;
+	display: inline-block;
 	margin: 0 auto;
 	width: 250px;
 	height: 250px;
-	border: 1px solid black;
+/*	border: 1px solid black; */
+}
+
+.info-pic img {
+	width: 250px;
+	height: 250px;
 }
 
 #money-info-section {
