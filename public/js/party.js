@@ -4,36 +4,6 @@ $(document).ready(function() {
 
   var Party = Parse.Object.extend("Party");
 
-  window.addParty = function(partyObj) {
-    var party = new Party();
-    party.set("name", partyObj.name);
-    party.set("location", partyObj.location);
-    party.set("description", partyObj.description);
-    party.set("date", partyObj.date);
-    party.save(null, {
-      success: function(obj) {
-        console.log("Successfully saved a party ", obj);
-      }, 
-      error: function(obj, err) {
-        console.log("An error occured: ", err);
-      }
-    });
-  }
-
-  window.getParty = function(partyid) {
-    var query = new Parse.Query(Party);
-    query.get(partyid, {
-      success: function(party) {
-        console.log("retrieved party: ", party);
-        return party;
-      }
-    }, {
-      error: function(obj, err) {
-        console.log("Failed to fetch object, error: ", err);
-      }
-    });
-  }
-
   window.createParty = function() {
     var formArray = $("#createPartyForm").serializeArray();
     var party = new Party();
@@ -46,6 +16,15 @@ $(document).ready(function() {
 		var name = "photo.jpg"
 		var parseFile = new Parse.File(name, photo);
 	}
+	
+	if (autocompleteLocation.getPlace() !== undefined) {
+		var place = autocompleteLocation.getPlace();
+		var point = {latitude: place.geometry.location.lat(),
+					 longitude: place.geometry.location.lng()};
+		var partyLocation = new Parse.GeoPoint(point);
+		party.set("geoLocation", partyLocation);
+	}
+	
 	parseFile.save().then(function() {
 		console.log("Saved the picture");
 		var parseUrl = parseFile.url();
@@ -55,7 +34,7 @@ $(document).ready(function() {
 	      success: function(obj) {
 	        console.log("Successfully saved a party ", obj);
 	        console.log("url: ", obj.get("photoUrl"));
-			// window.location = '/party/' + obj.id;
+			window.location = '/parties/' + obj.id;
 	      }, 
 	      error: function(obj, err) {
 	        console.log("An error occured: ", err);
@@ -89,7 +68,6 @@ $(document).ready(function() {
           var caption = $("<div>").addClass("caption");
 		  var partyImg = party.get("photoFile");
 		  var img = $("<img>").attr("src", partyImg.url());
-          // var img = $("<img>").attr("src", "img/test_party_pic.jpg");
           var partyObj = $("<div>").addClass("party");
           var title = $("<div>").addClass("title").html(party.get("name"));
           var info = $("<div>").addClass("info");
