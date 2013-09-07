@@ -22,6 +22,7 @@ PartyStarter.Party = Ember.Model.extend({
 , location: Ember.attr()
 , minDonation: Ember.attr()
 , totalCost: Ember.attr()
+, photoUrl: Ember.attr()
 });
 
 PartyStarter.Party.className = 'Party';
@@ -30,6 +31,27 @@ PartyStarter.IndexController = Ember.Controller.extend({
   actions: {
     venmoSignIn: function() {
       Venmo.auth();  
+    }
+  }
+});
+
+PartyStarter.WelcomeController = Ember.Controller.extend({
+  actions: {
+    toggleCreateForm: function() {
+      Ember.$('.top-img').toggleClass('host-form-active');
+      if (Ember.$('.bottom-img').hasClass('after-transition')) {
+        Ember.$('#createPartyName').blur();
+        Ember.$('.bottom-img').removeClass('after-transition');
+        setTimeout(function() {
+          Ember.$('.bottom-img').removeClass('host-form-active');
+        }, 50);
+      } else {
+        Ember.$('.bottom-img').addClass('host-form-active');
+        Ember.$('#createPartyName').focus();
+        setTimeout(function() {
+          Ember.$('.bottom-img').addClass('after-transition');
+        }, 200);
+      }
     }
   }
 });

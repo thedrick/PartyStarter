@@ -25,7 +25,7 @@
     <script type="text/javascript" src="/js/party.js"></script>
     <script type="text/javascript" src="/js/router.js"></script>
     <script type="text/javascript" src="/js/venmo.js"></script>
-
+	<script type="text/javascript" src="/js/view-party.js"></script>
     <script type="text/x-handlebars" data-template-name="index">
       <div class="get-started">
         <span class="header-sans center-block">Get the Party Started</span>
@@ -38,7 +38,7 @@
       <div class="black-bg">
         <div class="top-img">
           <span class="cant-stop center-block">We Can't Stop</span>
-          <span class="subtitle center-block">Host a Party</span>
+          <span class="subtitle center-block" {{ action 'toggleCreateForm' }}>Host a Party</span>
 
           <form id="createPartyForm" action="javascript:createParty();">
             <div class="inputrow"><span class="inputlabel">Event Name</span><input type="text" name="name" id="createPartyName"></div>
@@ -106,7 +106,7 @@
       <span class="party-desc center-block">{{description}}</span>
       <div class="party-info-section">
         <span class="info-title" id="creator">Who?</span>
-        <div class="info-pic"></div>
+        <div class="info-pic"><img {{bind-attr src=photoUrl}} /></div>
       </div>
       <div class="party-info-section">
         <span class="info-title" id="location">Where?</span>
@@ -125,7 +125,7 @@
           <span class="amount right-price">${{totalCost}}</span>
         </div>
         <div class="donate">
-          <input class="donate-input" placeholder="$0.00" name="donation"></input>
+          <input class="donate-input" placeholder="$1.00 (Minimum Amount)" name="donation"></input>
           <a onclick="loadScale();"><div class="donate-btn create-btn">Pitch In</div></a>
         </div>
         <div class="invite">
