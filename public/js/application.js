@@ -18,7 +18,9 @@ PartyStarter.Party = Ember.Model.extend({
   objectId: Ember.attr()
 , date: Ember.attr()
 , timeUntil: Ember.computed(function() {
-    var then = moment(this.get('date').iso);
+    console.log(this);
+    var d = this.get('date');
+    var then = moment(d.iso);
     if (!!then) {
       return then.fromNow();
     }
