@@ -4,17 +4,19 @@
     <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
     <title>PartyStarter</title>
     <link href="http://fonts.googleapis.com/css?family=Gudea:400italic|Source+Sans+Pro:200" rel="stylesheet" type="text/css">
-    <link href="style.css" rel="stylesheet" type="text/css" />
+    <link href="/css/style.css" rel="stylesheet" type="text/css" />
     <script src="http://www.parsecdn.com/js/parse-1.2.10.min.js"></script>
   </head>
-  <body style="background: url('img/large-solo.jpg') no-repeat center fixed;">
+  <body>
     <script type="text/x-handlebars">
       {{ outlet }}
     </script>
 
     <script type="text/javascript" src="/js/jquery.js"></script>
+    <script type="text/javascript" src="/js/jquery-deparam.js"></script>
     <script type="text/javascript" src="/js/handlebars.js"></script>
     <script type="text/javascript" src="/js/ember.js"></script>
+    <script type="text/javascript" src="/js/ember-query.js"></script>
     <script type="text/javascript" src="/js/application.js"></script>
     <script type="text/javascript" src="/js/party.js"></script>
     <script type="text/javascript" src="/js/router.js"></script>
@@ -26,6 +28,23 @@
         
         <a class="sign-in-btn center-block" href="#" {{ action 'venmoSignIn'}}>Sign in with Venmo</a>
       </div>
+    </script>
+
+    <script type="text/x-handlebars" data-template-name="welcome">
+      <div class="black-bg">
+        <div class="top-img" style="background: url('img/bottles.jpg') no-repeat center fixed;">
+          <span class="cant-stop center-block">We Can't Stop</span>
+          <span class="subtitle center-block">HOST a Party</span>
+        </div>
+      
+        <div class="bottom-img" style="background: url('img/hands.jpg') no-repeat bottom fixed;">
+          <span class="cant-stop center-block">We Won't Stop</span>
+          <span class="subtitle center-block">FIND a Party</span>
+        </div>
+      </div>
+    </script>
+
+    <script type="text/x-handlebars" data-template-name="parties">
     </script>
   </body>
 </html>

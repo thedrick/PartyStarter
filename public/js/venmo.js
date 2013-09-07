@@ -3,7 +3,7 @@ var Venmo = (function (Venmo) {
     var options = {
       client_id: "1353"
     , scope: "access_profile,make_payments"
-    , response_type: "token"
+    , response_type: "code"
     };
     var endpoint = "https://api.venmo.com/oauth/authorize?";
     
