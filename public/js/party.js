@@ -116,7 +116,33 @@ $(document).ready(function() {
     });
   }
 
+  window.addAttendee = function() {
+    var user = Parse.User.current();
+    var donation = $("#donate-input");
+    if (donation.length == 0) {
+      alert("You must enter a donation amount!");
+      return;
+    } else if (user == undefined) {
+      alert("You must log in to donate!");
+      return;
+    }
+    var Attendee = Parse.Object.extend("Attendee");
+    var attendee = new Attendee();
+    attendee.set("username", user.get("username"));
+    attendee.set("donation", Number(donation));
+    attendee.set("partyid", "UkKzyLIkuh");
+    attendee.save(null, {
+      success: function(obj) {
+        console.log("Successfully saved a new attendee", obj);
+      },
+      error: function(err) {
+        console.log("Error saving new attendee", err);
+      }
+    });
+  }
+
   $('#createPartyButton').on('click', window.createParty);
+  $('.donate-btn').on('click', window.addAttendee);
 });
 
 function initializePlaces() {
