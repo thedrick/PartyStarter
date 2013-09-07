@@ -7,7 +7,7 @@ app.use(express.logger());
 app.use(express.static(__dirname + "/public"));
 
 app.get('*', function(req, res) {
-  res.sendFile('index.html');
+  res.sendfile('index.html');
 });
 
 var port = process.env.PORT || 3000;
