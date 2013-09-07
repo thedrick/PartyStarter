@@ -96,6 +96,7 @@ body {
   color: #FFF;
   font: 6em/1em 'Source Sans Pro', sans-serif;
   display: none;
+  opacity: .8;
   padding-top: 130px;
   text-shadow: 1px 1px 5px #333;
   text-transform: lowercase;
