@@ -1,5 +1,5 @@
 body {
-  background: #EEE;
+  background: #E3E3E3;
   background-size: cover;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -18,11 +18,11 @@ body {
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-  height: 320px;
+  height: 300px;
   width: 100%;
-  -webkit-box-shadow: 0 0 6px #666;
-  -moz-box-shadow: 0 0 6px #666;
-  box-shadow: 0 0 6px #666;
+  -webkit-box-shadow: 4px 0 4px #555;
+  -moz-box-shadow: 4px 0 4px #555;
+  box-shadow: 4px 0 4px #555;
 }
 
 /* Headers & Text */
@@ -92,9 +92,9 @@ nav {
 }
 .links li {
   display: inline-block;
-  font: 1em/1em 'Source Sans Pro', sans-serif;
-  font-weight: 200;
+  font: 1em/1em 'Lato', sans-serif;
   padding: 0 5px;
+  text-transform: uppercase;
 }
 .links li a {
   color: #FFF;
