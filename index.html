@@ -70,7 +70,7 @@
       <span class="heading">Bumpin&apos; Nearby</span>
       <div class="parties">
         {{#each}}
-        <a>
+          {{#link-to "party" objectId}}
           <div class="party" id="party1">
             <div class="caption">
               <div class="title">{{name}}</div>
@@ -85,9 +85,9 @@
                 </div>
               </div>
             </div>
-            <img {{bind-attr src=photo}} />
+            <img {{bind-attr src=photoUrl}} />
           </div>
-        </a>
+          {{/link-to}}
         {{/each}}
       </div>
     </script>
