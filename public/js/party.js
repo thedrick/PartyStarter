@@ -116,6 +116,22 @@ $(document).ready(function() {
     });
   }
 
+  $('.top-img .subtitle').on('click', function() {
+    $('.top-img').toggleClass('host-form-active');
+    if ($('.bottom-img').hasClass('after-transition')) {
+      $('.bottom-img').removeClass('after-transition');
+      setTimeout(function() {
+        $('.bottom-img').removeClass('host-form-active');
+      }, 50);
+    } else {
+      $('.bottom-img').addClass('host-form-active');
+      setTimeout(function() {
+      $('.bottom-img').addClass('after-transition');
+      }, 200);
+    };
+    
+  })
+
   $('#createPartyButton').on('click', window.createParty);
 });
 
