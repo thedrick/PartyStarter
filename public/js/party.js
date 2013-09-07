@@ -148,6 +148,8 @@ $(document).ready(function() {
     });
   }
 
+  var headerImages = ['hands.jpg', 'lawn-party.jpg', 'party.jpg', 'pour.jpg', 'sitting.jpg'];
+  $('.header-img').css("background", "url('../img/" + headerImages[Math.floor(Math.random()*headerImages.length)] + "') no-repeat center scroll");
   $('#createPartyButton').on('click', window.createParty);
   $('.donate-btn').on('click', window.addAttendee);
 
