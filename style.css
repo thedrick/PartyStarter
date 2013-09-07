@@ -181,10 +181,9 @@ nav {
 	font: 3em 'Gudea', sans-serif;
 	font-style: italic;
 	font-weight: 100;
-	float: left;
 	color: #000;
 	display: block;
-	margin: 25px 0 0 25px;
+	margin-top: 25px;
 	width: 100%;
 	margin-bottom: 30px;
 	text-align: center;
