@@ -40,15 +40,30 @@ $(document).ready(function() {
     for (var i = 0; i < formArray.length; i++) {
       party.set(formArray[i].name, formArray[i].value);
     }
-    party.save(null, { 
-      success: function(obj) {
-        console.log("Successfully saved a party ", obj);
-        window.location = '/party/' + obj.id;
-      }, 
-      error: function(obj, err) {
-        console.log("An error occured: ", err);
-      }
-    });
+	var photoUploadControl = $("#createPartyPhoto")[0];
+	if (photoUploadControl.files.length > 0) {
+		var photo = photoUploadControl.files[0];
+		var name = "photo.jpg"
+		var parseFile = new Parse.File(name, photo);
+	}
+	parseFile.save().then(function() {
+		console.log("Saved the picture");
+		var parseUrl = parseFile.url();
+		party.set("photoUrl", parseUrl);
+		party.set("photoFile", parseFile);
+	    party.save(null, { 
+	      success: function(obj) {
+	        console.log("Successfully saved a party ", obj);
+	        console.log("url: ", obj.get("photoUrl"));
+			// window.location = '/party/' + obj.id;
+	      }, 
+	      error: function(obj, err) {
+	        console.log("An error occured: ", err);
+	      }
+	    });
+	}, function(error) {
+		console.log("An error occured saving the picutre: ", error);
+	});
   }
 
   window.findParties = function() {
@@ -72,7 +87,9 @@ $(document).ready(function() {
           var party = parties[i];
           var link = $("<a>");
           var caption = $("<div>").addClass("caption");
-          var img = $("<img>").attr("src", "img/test_party_pic.jpg");
+		  var partyImg = party.get("photoFile");
+		  var img = $("<img>").attr("src", partyImg.url());
+          // var img = $("<img>").attr("src", "img/test_party_pic.jpg");
           var partyObj = $("<div>").addClass("party");
           var title = $("<div>").addClass("title").html(party.get("name"));
           var info = $("<div>").addClass("info");

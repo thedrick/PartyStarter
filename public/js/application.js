@@ -22,6 +22,7 @@ PartyStarter.Party = Ember.Model.extend({
 , location: Ember.attr()
 , minDonation: Ember.attr()
 , totalCost: Ember.attr()
+, photoUrl: Ember.attr()
 });
 
 PartyStarter.Party.className = 'Party';
