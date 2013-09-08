@@ -8,6 +8,7 @@ PartyStarter.Router.map(function() {
   this.resource('party', { path: '/parties/:party_id' });
   this.route('oauth', { path: '/oauth/venmo' });
   this.route('admin');
+  this.route('logout');
 });
 
 PartyStarter.IndexRoute = Ember.Route.extend({
@@ -61,5 +62,14 @@ PartyStarter.OauthRoute = Ember.Route.extend({
         that.transitionTo('index');
       }
     });
+  }
+});
+
+PartyStarter.LogoutRoute = Ember.Route.extend({
+  activate: function() {
+    Parse.User.logOut();
+  }
+, afterModel: function() {
+    this.transitionTo('index');
   }
 });
