@@ -72,7 +72,7 @@
       <div class="feed">
         {{#each}}
           {{#link-to "party" objectId}}
-            <div class="party" {{bind-attr style=feedBg}}>
+            <div class="party" {{bind-attr style=headerBg}}>
               <span class="event-name">{{name}}</span>
               <div class="event-numbers">
                 <div class="third num-people">
@@ -96,45 +96,45 @@
 
     <script type="text/x-handlebars" data-template-name="party">
       <nav>
-        <span class="logo"><a href="/welcome">PartyStarter</a></span>
         <ul class="links">
-          <li><a href="#">Logout</a></li>
+          <li><a href="/welcome"><i class="icon-home"></i></a></li>
+          <li><a href="#"><i class="icon-off"></i></a></li>
         </ul>
       </nav>
-    <div class="header-img" {{bind-attr style=headerBg}}>
-      <span class="party-name center-block">{{name}}</span>
+
+      <div class="header-img" {{bind-attr style=headerBg}}>
+        <span class="party-name center-block">{{name}}</span>
       </div>
-    <div id="party-info">
-      <span class="party-desc center-block">{{description}}</span>
-      <div class="party-info-section">
-        <span class="info-title" id="creator">Who?</span>
-        <div class="info-pic"><img {{bind-attr src=photoUrl}} /></div>
-      </div>
-      <div class="party-info-section">
-        <span class="info-title" id="location">Where?</span>
-        <div class="info-pic">{{location}}</div>
-      </div>
-      <div class="party-info-section">
-        <span class="info-title" id="date">When?</span>
-        <div class="info-pic">{{timeUntil}}</div>
-      </div>
-      <div id="money-info-section">
-        <div class="scale-wrapper">
-          <span class="amount left-price">$0</span>
-          <div class="scale">
-            <span></span>
+      
+      <div id="party-info">
+        <span class="party-desc center-block">{{description}}</span>
+        <div class="party-info-section">
+          <span class="info-title" id="creator">Who?</span>
+          <div class="info-pic"><img {{bind-attr src=photoUrl}} /></div>
+        </div>
+        <div class="party-info-section">
+          <span class="info-title" id="location">Where?</span>
+          <div class="info-pic">{{location}}</div>
+        </div>
+        <div class="party-info-section">
+          <span class="info-title" id="date">When?</span>
+          <div class="info-pic">{{timeUntil}}</div>
+        </div>
+        <div id="money-info-section">
+          <div class="scale-wrapper">
+            <span class="amount left-price">$0</span>
+            <div class="scale"><span></span></div>
+            <span class="amount right-price">${{totalCost}}</span>
           </div>
-          <span class="amount right-price">${{totalCost}}</span>
-        </div>
-        <div class="donate">
+          <div class="donate">
           	<input class="donate-input" {{bind-attr placeholder=minDonationWithDollar}}  name="donation"></input>
-          <a onclick="loadScale();"><div class="donate-btn create-btn">Pitch In</div></a>
-        </div>
-        <div class="invite">
-          <a href="#"><div class="invite-btn create-btn">Invite Your Crew</div></a>
+            <a onclick="loadScale();"><div class="donate-btn create-btn">Pitch In</div></a>
+          </div>
+          <div class="invite">
+            <a href="#"><div class="invite-btn create-btn">Invite Your Crew</div></a>
+          </div>
         </div>
       </div>
-    </div>
     </script>
   </body>
 </html>

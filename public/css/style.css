@@ -556,4 +556,19 @@ nav {
     font-size: 4em;
     padding: 20px 40px;
   }
+  .top-img .subtitle,
+  .bottom-img .subtitle,
+  .top-img:hover .cant-stop,
+  .bottom-img:hover .cant-stop,
+  .top-img.host-form-active .subtitle {
+    display: block;
+  }
+  .top-img:hover .subtitle,
+  .bottom-img:hover .subtitle,
+  .top-img .cant-stop,
+  .bottom-img .cant-stop,
+  .top-img.host-form-active .cant-stop,
+  .bottom-img.after-transition {
+    display: none;
+  }
 }
