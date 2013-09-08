@@ -1,0 +1,25 @@
+html { 
+  height: 100% 
+}
+
+body { 
+  height: 100%; 
+  margin: 0; 
+  padding: 0 
+}
+
+#map-canvas { 
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto;
+}
+
+.element {
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+    color: #fff;
+    -webkit-mask-image: url(../img/mask.png);
+}

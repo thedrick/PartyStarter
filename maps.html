@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" type="text/css" href="public/css/maps.css">
+    <script type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKFf9hehI2eok6EV03K8EdhQDe_xpr6J0&sensor=true">
+    </script>
+    <script type="text/javascript">
+      function initialize() {
+        var lat = 39.950382;
+        var lng = -75.196643999;
+        var latlng = new google.maps.LatLng(lat, lng);
+        var mapOptions = {
+          center: latlng,
+          zoom: 12,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        var map = new google.maps.Map(document.getElementById("map-canvas"),
+            mapOptions);
+
+        var marker = new google.maps.Marker({
+          position: latlng,
+          map:map
+        });
+      }
+      google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+  </head>
+  <body>
+<!-- SVG begins -->
+    <svg>
+
+        <!-- Definition of a mask begins -->
+        <defs>
+            <mask id="mask" maskUnits="userSpaceOnUse" maskContentUnits="userSpaceOnUse">
+                <image width="200px" height="200px" xlink:href="public/img/mask.png"></image>
+            </mask>
+        </defs>
+        <!-- Definition of a mask ends -->
+
+        <foreignObject width="200px" height="200px" style="mask: url(#mask);">
+
+            <!-- HTML begins -->
+            <div class="element">
+              <div id="map-canvas"/>
+            </div>
+            <!-- HTML ends -->
+
+        </foreignObject>
+    </svg>
+    <!-- SVG ends -->
+
+  </body>
+</html>
