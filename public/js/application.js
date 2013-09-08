@@ -60,6 +60,8 @@ PartyStarter.Party = Ember.Model.extend({
         return 'Hours';
       } else if (val == '') {
         return 'Hour';
+      } else if (val == 'min') {
+        return 'Minutes'
       } else if (val == 'mo') {
         return 'Months';
       } else {
