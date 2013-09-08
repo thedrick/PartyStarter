@@ -15,8 +15,8 @@ $(document).ready(function() {
     var party = new Party();
     for (var i = 0; i < formArray.length; i++) {
       var element = formArray[i];
-	    if (element == "minDonation") {
-		    party.set("minDonation", string(element.value));
+	    if (element == "minDonation" || element == "totalCost") {
+		    party.set(element.name, string(element.value));
 	    } else {
 		    party.set(element.name, element.value);
 	    }
