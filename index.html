@@ -97,63 +97,63 @@
 
     <script type="text/x-handlebars" data-template-name="party">
       <nav>
-      <ul class="links">
-        <li><a href="/welcome"><i class="icon-home"></i></a></li>
-        <li><a href="#"><i class="icon-off"></i></a></li>
-      </ul>
-    </nav>
-  
-    <div class="header-img" {{bind-attr style=headerBg}}>
-      <span class="event-name">{{name}}</span>
-      <div class="event-numbers">
-        <div class="third num-people">
-          <span class="large-number">{{numAttendees}}</span>
-          <span class="number-desc">Partiers</span>
-        </div>
-        <div class="third total-cost">
-          <span class="large-number">${{remainingCostUpdate}}</span>
-          <span class="number-desc">Needed</span>
-        </div>
-        <div class="third time-until">
-          <span class="large-number">{{timeUntil}}</span>
-          <span class="number-desc">Days</span>
+        <ul class="links">
+          <li><a href="/welcome"><i class="icon-home"></i></a></li>
+          <li><a href="#"><i class="icon-off"></i></a></li>
+        </ul>
+      </nav>
+    
+      <div class="header-img" {{bind-attr style=headerBg}}>
+        <span class="event-name">{{name}}</span>
+        <div class="event-numbers">
+          <div class="third num-people">
+            <span class="large-number">{{numAttendees}}</span>
+            <span class="number-desc">Partiers</span>
+          </div>
+          <div class="third total-cost">
+            <span class="large-number">${{remainingCostUpdate}}</span>
+            <span class="number-desc">Needed</span>
+          </div>
+          <div class="third time-until">
+            <span class="large-number">{{timeUntil}}</span>
+            <span class="number-desc">Days</span>
+          </div>
         </div>
       </div>
-    </div>
 
-  <div class="party-view">
-    <div class="subsection">
-      <div class="party-details">
-        <span class="detail-title big">Time</span>
-        <div class="detail-img clock"><img src="/img/clock.png" /></div>
-        <span class="detail-title">{{fancyDate}}</span>
-        <div class="detail-title">{{fancyTime}}</div>
+      <div class="party-view">
+        <div class="subsection">
+          <div class="party-details">
+            <span class="detail-big">Time</span>
+            <div class="detail-img clock"><img src="/img/clock.png" /></div>
+            <span class="detail-title">{{fancyDate}}</span>
+            <div class="detail-title">{{fancyTime}}</div>
+          </div>
+          <div class="party-details">
+            <span class="detail-big">Host</span>
+            <div class="detail-img person"><img {{bind-attr src=hostpicture}} /></div>
+            <span class="detail-title">{{hostname}}</span>
+          </div>
+          <div class="party-details">
+            <span class="detail-big">Location</span>
+            <div class="detail-img map"><img {{bind-attr src=mapdefault}}/></div>
+            <span class="detail-title">{{location}}</span>
+          </div>
+        </div>
+        <div class="subsection">
+          <div class="party-info details">
+            {{description}}
+          </div>
+          <div class="party-info donate">
+            <input class="donate-input" {{bind-attr placeholder=minDonationWithDollar}}  name="donation" />
+            <div class="donate-btn" onclick="window.addAttendee()">Pitch In</div>
+          </div>
+        </div>
+        <div class="subsection buttons">
+          <div class="invite-btn" onclick="">Invite Your Crew</div>
+          <div class="finish-btn" onclick="">Stop Partying</div>
+        </div>
       </div>
-      <div class="party-details">
-        <span class="detail-title big">Host</span>
-        <div class="detail-img person"><img {{bind-attr src=hostpicture}} /></div>
-        <span class="detail-title">{{hostname}}</span>
-      </div>
-      <div class="party-details">
-        <span class="detail-title big">Location</span>
-        <div class="detail-img map"><img {{bind-attr src=mapdefault}}/></div>
-        <span class="detail-title">{{location}}</span>
-      </div>
-    </div>
-    <div class="subsection">
-      <div class="party-info details">
-        {{description}}
-      </div>
-      <div class="party-info donate">
-        <input class="donate-input" {{bind-attr placeholder=minDonationWithDollar}}  name="donation" />
-        <div class="donate-btn" onclick="window.addAttendee()">Pitch In</div>
-      </div>
-    </div>
-    <div class="subsection buttons">
-      <div class="invite-btn" onclick="">Invite Your Crew</div>
-      <div class="finish-btn" onclick="">Stop Partying</div>
-    </div>
-  </div>
     </script>
   </body>
 </html>

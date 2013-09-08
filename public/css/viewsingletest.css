@@ -9,61 +9,32 @@
 .header-img .event-numbers {
   opacity: 1;
 }
-
-.party-name {
-    color: #FFF;
-    font: 6em 'Gudea', sans-serif;
-    font-style: italic;
-    opacity: .8;
-    padding-top: 100px;
-    text-shadow: 1px 1px 5px #333;
-    text-transform: uppercase;
-	text-align: center;
-}
-
 .party-view {
-	width: 100%;
-/*	background-color: #808080;
-*/	height: auto;
-	font: 1em 'Gudea', sans-serif;
+  color: #333;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 300;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
 }
-
 .subsection {
 	width: 80%;
-	height: auto;
 	margin: 0 auto;
-    /*-webkit-box-shadow: 4px 0 4px #555;
-    -moz-box-shadow: 4px 0 4px #555;
-    box-shadow: 4px 0 4px #555;*/
+  text-align: center;
 }
 
 .party-details {
 	width: 33%;
 	display: inline-block;
-	margin: 0 auto;
-	height: 100%;
-	text-align: center;
 	padding-top: 2em;
 	padding-bottom: 2em;
   vertical-align: top;
-    /*-webkit-box-shadow: 2px 0 2px #555;
-    -moz-box-shadow: 2px 0 2px #555;
-    box-shadow: 2px 0 2px #555;*/
 }
-
 .detail-title {
 	font-size: 1.4em;
-	font-weight: 200;
-	color: #555;
 }
-
-.big {
+.detail-big {
 	font-size: 2em;
-	font-weight: 200;
-	text-transform: uppercase;
-	letter-spacing: 1.6px;
 }
-
 .detail-img {
 	border-radius: 60%;
 	width: 200px;
@@ -81,10 +52,9 @@
 }
 
 .party-info {
-	display: inline-block;
+	display: block;
 	margin: 0 auto;
 	padding-top: 30px;
-	font: 1em 'Gudea', sans-serif;
 	padding-bottom: 40px;
 	vertical-align: top;
 	padding-left: 20px;
@@ -94,7 +64,6 @@
 .details {
 	width: 48%;
 	font-size: 1.3em;
-	font-weight: 200;
 /*	padding-left: 30px;
 */	margin: 0 auto;
 }
@@ -174,4 +143,24 @@
 	text-align: center;
 	margin-top: 40px;
 	margin-bottom: 50px;
+}
+
+/*** Media Queries */
+@media all and (max-width: 950px) {
+  .header-img {
+    height: 400px;
+  }
+  .event-name {
+    float: none;
+  }
+  .event-numbers {
+    float: none;
+    margin: 0 auto;
+  }
+}
+
+@media all and (max-device-width: 950px) {
+  .event-numbers {
+    opacity: 1;
+  }
 }

@@ -330,7 +330,7 @@ nav {
 }
 
 /*** Media Queries ***/
-@media all and (max-width: 800px) {
+@media all and (max-width: 950px) {
   .party {
     height: 400px;
   }
@@ -343,7 +343,7 @@ nav {
   }
 }
 
-@media all and (max-device-width: 800px) {
+@media all and (max-device-width: 950px) {
   .event-numbers {
     opacity: 1;
   }
