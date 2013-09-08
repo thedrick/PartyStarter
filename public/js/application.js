@@ -42,6 +42,9 @@ PartyStarter.Party = Ember.Model.extend({
 	var total = Number(this.get("totalCost"));
 	var funded = Number(this.get("fundedCost"));
 	var remaining = total - funded;
+	if (remaining < 0) {
+		remaining = 0
+	}
 	return String(remaining);
 }).property('remainingCost')
 // , photoUrl: Ember.attr()
