@@ -1,7 +1,6 @@
 Parse.initialize("vpkqQoxmJU4HqOx57O81id3RTSwuKTbGJprxGgQc", "mXbf5O1xhVSjlMb51tjuiXxPI8KOc6jd65upOj3O");
 
 $(document).ready(function() {
-
   var Party = Parse.Object.extend("Party");
   var Attendee = Parse.Object.extend("Attendee");
 
@@ -82,50 +81,45 @@ $(document).ready(function() {
 
   window.addAttendee = function() {
     loadScale();
-    var user = Parse.User.current();
-    var donationInput = $(".donate-input").val();
-	var donation = donationInput.replace("$", "");
-    var donationValue = Number(donation);
-	  var partyQuery = new Parse.Query(Party);
-	  partyQuery.get(localStorage["currentParty"]).then(function(party) {
-      console.log(party);
-		  var minDonation = Number(party.get("minDonation"));
-		  if (minDonation > donationValue) {
-			  alert("You must donate at least $" + String(minDonation) + "!");
-			  return;
-		  }
-		  var isNewAttendee = 0;
-		  var attendeeQuery = new Parse.Query(Attendee);
-		  attendeeQuery.equalTo("username", user.get("username"));
-		  attendeeQuery.equalTo("partyid", localStorage["currentParty"]);
-		  var attendee;
-		  attendeeQuery.find().then(function(result) {
-          console.log(result);
-		      if (result && result.length > 0) {
-		        attendee = result[0];
-		        var currentDonation = Number(attendee.get("donation"));
-		        currentDonation += donationValue;
-		        attendee.set("donation", String(currentDonation));
-		      } else {
-		        attendee = new Attendee();
-		        isNewAttendee = 1;
-		        attendee.set("username", user.get("username"));
-		        attendee.set("partyid", localStorage["currentParty"]);
-		        attendee.set("donation", donation);
-		      }
-			  attendee.save().then(function() {
-          party.set("numAttendees", String(Number(party.get("numAttendees")) + isNewAttendee));
-          party.set("fundedCost", String(Number(party.get("fundedCost")) + donationValue));
-          party.save();
-        });
-		  }, function(err){
-			  console.log("Couldn't get attendees");
-			  return;
-		  });
-	  }, function(err) {
-		  console.log("Couldn't find party");
-		  return;
-	  });
+    var user = Parse.User.current()
+      , donationInput = $(".donate-input").val()
+      , donation = donationInput.replace("$", "")
+      , donationValue = Number(donation);
+
+	  var party = PartyStarter.Party.find(localStorage["currentParty"]);
+      
+    var minDonation = Number(party.get("minDonation"));
+    if (minDonation > donationValue) {
+      alert("You must donate at least $" + String(minDonation) + "!");
+      return;
+    }
+    var isNewAttendee = 0;
+    var attendeeQuery = new Parse.Query(Attendee);
+    attendeeQuery.equalTo("username", user.get("username"));
+    attendeeQuery.equalTo("partyid", localStorage["currentParty"]);
+    var attendee;
+    attendeeQuery.first().then(function(result) {
+      if (result) {
+        attendee = result;
+        var currentDonation = Number(attendee.get("donation")) + donationValue;
+        attendee.set("donation", String(currentDonation));
+      } else {
+        attendee = new Attendee();
+        isNewAttendee = 1;
+        attendee.set("username", user.get("username"));
+        attendee.set("partyid", localStorage["currentParty"]);
+        attendee.set("donation", donation);
+      }
+
+      return attendee.save();
+    }).then(function(attendee) {
+      party.set("numAttendees", party.get("numAttendees") + isNewAttendee);
+      party.set("fundedCost", party.get("fundedCost") + donationValue);
+      party.save();
+    }, function(err) {
+      console.log("Couldn't get attendees");
+      return;
+    });
   }
   
   $('#createPartyButton').on('click', window.createParty);
