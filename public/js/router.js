@@ -29,7 +29,11 @@ PartyStarter.PartyRoute = Ember.Route.extend({
 
 PartyStarter.PartiesRoute = Ember.Route.extend({
   model: function() {
-    return PartyStarter.Party.findAll();
+    return PartyStarter.Party.find({
+      where: { 
+        date: { $gte: moment().toISOString() }
+      }
+    });
   }
 });
 
