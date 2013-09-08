@@ -83,8 +83,9 @@
                   <span class="large-number">${{totalCost}}</span>
                   <span class="number-desc">Needed</span>
                 </div>
-                <div class="money-info">
-                  <span class="money1">${{totalCost}}</span>
+                <div class="third time-until">
+                  <span class="large-number">{{timeUntil}}</span>
+                  <span class="number-desc">Days</span>
                 </div>
                 <div class="third time-until">
                   <span class="large-number">{{timeUntil}}</span>
@@ -96,8 +97,6 @@
                 </div>
               </div>
             </div>
-            <img {{bind-attr src=photoUrl}} />
-          </div>
           {{/link-to}}
         {{/each}}
 		</div>
