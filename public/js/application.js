@@ -20,7 +20,8 @@ PartyStarter.Party = Ember.Model.extend({
 , timeUntil: (function() {
     var then = moment(this.get("date"));
     if (!!then) {
-      return then.fromNow();
+      var time = then.fromNow();
+      return time.substring(3, time.length - 4);
     }
     return "never";
   }).property('date')
@@ -40,6 +41,10 @@ PartyStarter.Party = Ember.Model.extend({
 , headerBg: Ember.computed(function() {
     var headerImages = ['hands.jpg', 'lawn-party.jpg', 'party.jpg', 'pour.jpg', 'sitting.jpg', 'more-beer.jpg', 'solo-cups.jpg'];
     return "background: url('../img/" + headerImages[Math.floor(Math.random()*headerImages.length)] + "') no-repeat top center scroll;";
+  })
+, feedBg: Ember.computed(function() {
+    var headerImages = ['hands.jpg', 'lawn-party.jpg', 'party.jpg', 'pour.jpg', 'sitting.jpg', 'more-beer.jpg', 'solo-cups.jpg'];
+    return "background: url('../img/" + headerImages[Math.floor(Math.random()*headerImages.length)] + "') no-repeat center center scroll;";
   })
 });
 
