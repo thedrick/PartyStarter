@@ -14,6 +14,17 @@ Ember.Model.reopenClass({
 , adapter: parseAdapter
 });
 
+var Num = {
+  deserialize: function(string) {
+    if (!string && string !== 0) { return null; }
+    return Number(string);
+  },
+  serialize: function (number) {
+    if (!number && number !== 0) { return null; }
+    return String(number);
+  }
+}
+
 PartyStarter.Party = Ember.Model.extend({
   objectId: Ember.attr()
 , date: Ember.attr(Date)
@@ -69,18 +80,18 @@ PartyStarter.Party = Ember.Model.extend({
   })
 , hostname: Ember.attr()
 , hostpicture: Ember.attr()
-, numAttendees: Ember.attr()
+, numAttendees: Ember.attr(Num)
 , description: Ember.attr()
 , location: Ember.attr()
-, minDonation: Ember.attr(Number)
+, minDonation: Ember.attr(Num)
 , minDonationWithDollar: (function() {
     var amount = this.get("minDonation")
       , finMin = "$" + amount;
     return finMin;
   }).property('minDonation')
-, totalCost: Ember.attr(Number)
-, fundedCost: Ember.attr(Number)
-, remainingCostUpdate: (function() {
+, totalCost: Ember.attr(Num)
+, fundedCost: Ember.attr(Num)
+, remainingCost: (function() {
     var total = Number(this.get("totalCost"))
       , funded = Number(this.get("fundedCost"))
       , remaining = total - funded;
