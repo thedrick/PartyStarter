@@ -157,5 +157,32 @@
         </div>
       </div>
     </script>
+
+    <script type="text/x-handlebars" data-template-name="admin">
+      <div class="feed">
+        {{#each}}
+          {{#link-to "party" objectId}}
+            <div class="party" {{bind-attr style=headerBg}}>
+              <span class="event-name">{{name}}</span>
+              <span class="event-fund" {{ action 'fundEvent' objectId bubbles=false }}>Fund event</span>
+              <div class="event-numbers">
+                <div class="third num-people">
+                  <span class="large-number">{{numAttendees}}</span>
+                  <span class="number-desc">Partiers</span>
+                </div>
+                <div class="third total-cost">
+                  <span class="large-number">${{remainingCostUpdate}}</span>
+                  <span class="number-desc">Needed</span>
+                </div>
+                <div class="third time-until">
+                  <span class="large-number">{{timeUntil}}</span>
+                  <span class="number-desc">Days</span>
+                </div>
+              </div>
+            </div>
+          {{/link-to}}
+        {{/each}}
+		  </div>
+    </script>
   </body>
 </html>

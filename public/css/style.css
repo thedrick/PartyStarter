@@ -289,6 +289,17 @@ nav {
   text-decoration: none;
   text-shadow: 1px 1px 5px #333;
 }
+.event-fund {
+  color: #FFF;
+  display: block;
+  float: right;
+  font: 3em/1em 'Source Sans Pro', sans-serif;
+  font-weight: 300;
+  opacity: .7;
+  padding: 70px 30px 0 0;
+  text-decoration: none;
+  text-shadow: 1px 1px 5px #333;
+}
 .event-numbers {
   display: block;
   float: right;
