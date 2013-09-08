@@ -18,14 +18,32 @@ PartyStarter.Party = Ember.Model.extend({
   objectId: Ember.attr()
 , date: Ember.attr(Date)
 , host: Ember.attr()
-, timeUntil: (function() {
+, timeUntilValue: (function() {
     var then = moment(this.get("date"));
     if (!!then) {
       var time = then.fromNow()
         , text = time.substring(3, time.length - 4);
       
       console.log("timeUntil", time, "text", text);
-      return text;
+	  return text.split(' ')[0];
+    }
+    return "";
+  }).property('date')
+, timeUntilUnit: (function() {
+    var then = moment(this.get("date"));
+    if (!!then) {
+      var time = then.fromNow()
+        , text = time.substring(3, time.length - 4);
+      
+      console.log("timeUntil", time, "text", text);
+	  var val = text.split(' ')[1];
+	  if (val == 'h') {
+		  return 'Hours';
+	  } else if (val == 'mo') {
+		  return 'Months';
+	  } else {
+		  return 'Days';
+	  }
     }
     return "";
   }).property('date')
