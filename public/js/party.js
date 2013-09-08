@@ -15,14 +15,15 @@ $(document).ready(function() {
     var party = new Party();
     for (var i = 0; i < formArray.length; i++) {
       var element = formArray[i];
-	  if (element == "minDonation") {
-		  party.set("minDonation", string(element.value));
-	  }
-      else {
-		  party.set(element.name, element.value);
-	  }
+	    if (element == "minDonation") {
+		    party.set("minDonation", string(element.value));
+	    } else {
+		    party.set(element.name, element.value);
+	    }
     }
     party.set("host", user.id);
+    party.set("hostname", user.get("username"));
+    party.set("hostpicture", user.get("picture"));
 	
 	if (autocompleteLocation.getPlace() !== undefined) {
 		var place = autocompleteLocation.getPlace();

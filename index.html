@@ -6,7 +6,7 @@
     <link href="http://fonts.googleapis.com/css?family=Gudea:400italic|Source+Sans+Pro:200,300,400" rel="stylesheet" type="text/css">
     <link href="/css/style.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" type="text/css" href="/css/create.css">
-	<link rel="stylesheet" tyep="text/css" href="/css/viewsingle.css" />
+    <link rel="stylesheet" tyep="text/css" href="/css/viewsingletest.css" />
     <link href="/css/create.css" rel="stylesheet" type="text/css" />
     <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet" />
     <script src="http://www.parsecdn.com/js/parse-1.2.10.min.js"></script>
@@ -97,66 +97,49 @@
 
     <script type="text/x-handlebars" data-template-name="party">
       <nav>
-        <ul class="links">
-          <li><a href="/welcome"><i class="icon-home"></i></a></li>
-          <li><a href="#"><i class="icon-off"></i></a></li>
-        </ul>
-      </nav>
+      <ul class="links">
+        <li><a href="/welcome"><i class="icon-home"></i></a></li>
+        <li><a href="#"><i class="icon-off"></i></a></li>
+      </ul>
+    </nav>
+  
+    <div class="header-img" {{bind-attr style=headerBg}}>
+      <span class="party-name center-block">{{name}}</span>
+    </div>
 
-      <div class="header-img" {{bind-attr style=headerBg}}>
-        <span class="event-name">{{name}}</span>
-        <div class="event-numbers">
-          <div class="third num-people">
-            <span class="large-number">{{numAttendees}}</span>
-            <span class="number-desc">Partiers</span>
-          </div>
-          <div class="third total-cost">
-            <span class="large-number">${{remainingCostUpdate}}</span>
-            <span class="number-desc">Needed</span>
-          </div>
-          <div class="third time-until">
-            <span class="large-number">{{timeUntil}}</span>
-            <span class="number-desc">Days</span>
-          </div>
-        </div>
+  <div class="party-view">
+    <div class="subsection">
+      <div class="party-details">
+        <span class="detail-title big">Time</span>
+        <div class="detail-img clock"><img src="/img/clock.png" /></div>
+        <span class="detail-title">{{fancyDate}}</span>
+        <div class="detail-title">{{fancyTime}}</div>
       </div>
-
-      <div id="party-info">
-        <span class="party-desc">{{description}}</span>
-        
-        <div class="party-info-section">
-          <span class="info-title" id="creator">Who?</span>
-          <div class="info-pic"></div>
-        </div>
-      
-        <div class="party-info-section">
-          <span class="info-title" id="location">Where?</span>
-          <div class="info-pic">{{location}}</div>
-        </div>
-      
-        <div class="party-info-section">
-          <span class="info-title" id="date">When?</span>
-          <div class="info-pic">{{timeUntil}}</div>
-        </div>
-        
-        <div id="money-info-section">
-          <div class="scale-wrapper">
-            <span class="amount left-price">$0</span>
-            <div class="scale"><span></span></div>
-            <span class="amount right-price">${{totalCost}}</span>
-          </div>
-
-          <div class="donate">
-            {{view PartyStarter.PlaceholderField class="donate-input" valueBinding="donateAmount" placeholderBinding="minDonationWithDollar" }}
-            <div class="donate-btn create-btn" onclick="window.addAttendee()">Pitch In</div>
-          </div>
-        </div>
-
-        <div class="invite">
-          <a href="#"><div class="invite-btn create-btn">Invite Your Crew</div></a>
-        </div>
-        <div class="map"></div>
+      <div class="party-details">
+        <span class="detail-title big">Host</span>
+        <div class="detail-img person"><img {{bind-attr src=hostpicture}} /></div>
+        <span class="detail-title">{{hostname}}</span>
       </div>
+      <div class="party-details">
+        <span class="detail-title big">Location</span>
+        <div class="detail-img map"><img {{bind-attr src=mapdefault}}/></div>
+        <span class="detail-title">{{location}}</span>
+      </div>
+    </div>
+    <div class="subsection">
+      <div class="party-info details">
+        {{description}}
+      </div>
+      <div class="party-info donate">
+        <input class="donate-input" placeholder="$5.00"  name="donation" />
+        <div class="donate-btn" onclick="window.addAttendee()">Pitch In</div>
+      </div>
+    </div>
+    <div class="subsection buttons">
+      <div class="invite-btn" onclick="">Invite Your Crew</div>
+      <div class="finish-btn" onclick="">Stop Partying</div>
+    </div>
+  </div>
     </script>
   </body>
 </html>

@@ -9,17 +9,17 @@ body {
 }
 
 #map-canvas { 
-  height: 200px;
-  width: 200px;
+  height: 400px;
+  width: 400px;
   border-radius: 50%;
   display: block;
   margin: 0 auto;
 }
 
-.element {
+/*.element {
     width: 200px;
     height: 200px;
     overflow: hidden;
     color: #fff;
     -webkit-mask-image: url(../img/mask.png);
-}
+}*/

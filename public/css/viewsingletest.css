@@ -46,13 +46,14 @@
 	text-align: center;
 	padding-top: 2em;
 	padding-bottom: 2em;
+  vertical-align: top;
     /*-webkit-box-shadow: 2px 0 2px #555;
     -moz-box-shadow: 2px 0 2px #555;
     box-shadow: 2px 0 2px #555;*/
 }
 
 .detail-title {
-	font-size: 2.4em;
+	font-size: 1.4em;
 	font-weight: 200;
 	color: #555;
 }
@@ -65,13 +66,19 @@
 }
 
 .detail-img {
-	border-radius: 50%;
+	border-radius: 60%;
 	width: 200px;
 	height: 200px;
-	background-color: #224400;
+	background-color: #fff;
 	margin: 0 auto;
 	margin-bottom: 30px;
 	margin-top: 20px;
+}
+
+.detail-img img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
 }
 
 .party-info {
@@ -100,32 +107,31 @@
 }
 
 .donate-input {
-	height: 30px;
-	width: 360px;
+	width: 320px;
 	font-size: 1.2em;
-	padding: 10px	;
+	padding: 12px 4px;
+  box-sizing: border-box;
 }
 
 .donate-btn {
-    background: #3D95CE;
-    border: 0;
-    border-radius: 8px;
-    color: #FFF;
-    font: 1.4em/1em 'Source Sans Pro', sans-serif;
-    font-weight: 200;
-    margin-top: 20px;
-    padding: 12px 4px;
-    text-decoration: none;
-    width: 380px;
-    -webkit-box-shadow: 0 0 6px #555;
-    -moz-box-shadow: 0 0 6px #555;
-    box-shadow: 0 0 6px #555;
-    -webkit-transition: background 0.2s ease-in-out;
-    -moz-transition: background 0.2s ease-in-out;
-    -o-transition: background 0.2s ease-in-out;
-    transition: background 0.2s ease-in-out;
-	margin: 0 auto;
-	margin-top: 30px;
+  background: #3D95CE;
+  border: 0;
+  border-radius: 8px;
+  color: #FFF;
+  font: 1.4em/1em 'Source Sans Pro', sans-serif;
+  font-weight: 200;
+  padding: 12px 4px;
+  text-decoration: none;
+  width: 320px;
+  -webkit-box-shadow: 0 0 6px #555;
+  -moz-box-shadow: 0 0 6px #555;
+  box-shadow: 0 0 6px #555;
+  -webkit-transition: background 0.2s ease-in-out;
+  -moz-transition: background 0.2s ease-in-out;
+  -o-transition: background 0.2s ease-in-out;
+  transition: background 0.2s ease-in-out;
+	margin: 20px auto;
+  display: block;
 }
 
 .invite-btn, .finish-btn {
@@ -138,7 +144,7 @@
     margin-top: 20px;
     padding: 12px 4px;
     text-decoration: none;
-    width: 380px;
+    width: 320px;
     -webkit-box-shadow: 0 0 6px #555;
     -moz-box-shadow: 0 0 6px #555;
     box-shadow: 0 0 6px #555;

@@ -24,9 +24,30 @@ PartyStarter.Party = Ember.Model.extend({
       var time = then.fromNow();
       return time.substring(3, time.length - 4);
     }
-    return "never";
+    return "";
+  }).property('date')
+, fancyDate: (function() {
+  var time = moment(this.get("date"));
+  if (!!time) {
+    var displayDate = time.format('MMMM Do YYYY');
+    return displayDate;
+  }
+  return "";
+  }).property('date')
+, fancyTime: (function() {
+  var time = moment(this.get("date"));
+  if (!!time) {
+    var displayDate = time.format('hh:mm a');
+    return displayDate;
+  }
+  return "";
   }).property('date')
 , name: Ember.attr()
+, mapdefault: Ember.computed(function() {
+    return "/img/mapdefault.png";
+  })
+, hostname: Ember.attr()
+, hostpicture: Ember.attr()
 , numAttendees: Ember.attr()
 , description: Ember.attr()
 , location: Ember.attr()
