@@ -15,15 +15,14 @@ $(document).ready(function() {
     var party = new Party();
     for (var i = 0; i < formArray.length; i++) {
       var element = formArray[i];
-      party.set(element.name, element.value);
+	  if (element == "minDonation") {
+		  party.set("minDonation", string(element.value));
+	  }
+      else {
+		  party.set(element.name, element.value);
+	  }
     }
     party.set("host", user.id);
-	  var photoUploadControl = $("#createPartyPhoto")[0];
-	  if (photoUploadControl.files.length > 0) {
-  		var photo = photoUploadControl.files[0];
-  		var name = "photo.jpg"
-		  var parseFile = new Parse.File(name, photo);
-	 }
 	
 	if (autocompleteLocation.getPlace() !== undefined) {
 		var place = autocompleteLocation.getPlace();
@@ -32,28 +31,20 @@ $(document).ready(function() {
 		var partyLocation = new Parse.GeoPoint(point);
 		party.set("geoLocation", partyLocation);
 	}
-	
-	parseFile.save().then(function() {
-		console.log("Saved the picture");
-		var parseUrl = parseFile.url();
-		party.set("photoUrl", parseUrl);
-		party.set("photoFile", parseFile);
-		party.set("fundedCost", "0");
-    party.set("numAttendees", "0");
-	    party.save(null, { 
-	      success: function(obj) {
+
+	party.set("fundedCost", "0");
+	party.set("numAttendees", "0");
+	party.save(null, { 
+		success: function(obj) {
 	        console.log("Successfully saved a party ", obj);
-	        console.log("url: ", obj.get("photoUrl"));
+	        // console.log("url: ", obj.get("photoUrl"));
 			    window.location = '/parties/' + obj.id;
 	      }, 
 	      error: function(obj, err) {
 	        console.log("An error occured: ", err);
 	      }
-	    });
-	}, function(error) {
-		console.log("An error occured saving the picutre: ", error);
-	});
-  }
+	  });
+	}
 
   window.findParties = function() {
     var query = new Parse.Query(Party);
@@ -63,42 +54,6 @@ $(document).ready(function() {
       },
       error: function(error) {
         return error;
-      }
-    });
-  }
-
-  window.loadParties = function() {
-    var query = new Parse.Query(Party);
-    var partiesElt = $(".parties");
-    query.find({
-      success: function(parties) {
-        for (var i = 0; i < parties.length; i++) {
-          var party = parties[i];
-          var link = $("<a>");
-          var caption = $("<div>").addClass("caption");
-		  var partyImg = party.get("photoFile");
-		  var img = $("<img>").attr("src", partyImg.url());
-          var partyObj = $("<div>").addClass("party");
-          var title = $("<div>").addClass("title").html(party.get("name"));
-          var info = $("<div>").addClass("info");
-          var daysInfo = $("<div>").addClass("days-info");
-          var days1 = $("<span>").addClass("days1").html(30);
-          var days2 = $("<span>").addClass("days2").html("days left");
-          daysInfo.append(days1, days2);
-          var moneyInfo = $("<div>").addClass("money-info");
-          var money1 = $("<span>").addClass("money1").html(party.get("totalCost"));
-          var money2 = $("<span>").addClass("money2").html("needed");
-          moneyInfo.append(money1, money2);
-          info.append(daysInfo, moneyInfo);
-          caption.append(title, info);
-          partyObj.append(caption, img);
-          link.append(partyObj);
-          partiesElt.append(link);
-        }
-        window.bindParties();
-      },
-      error: function(error) {
-        console.log("Error fetching parties: ", error);
       }
     });
   }
