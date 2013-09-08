@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <link href="http://fonts.googleapis.com/css?family=Gudea:400italic|Source+Sans+Pro:200,300,400" rel="stylesheet" type="text/css">
+    <link href="public/css/style.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="public/css/create.css">
+    <link rel="stylesheet" tyep="text/css" href="public/css/viewsingle.css" />
+    <link href="public/css/create.css" rel="stylesheet" type="text/css" />
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet" />
+    <script src="http://www.parsecdn.com/js/parse-1.2.10.min.js"></script>
+</head>
+<body>
+  <nav>
+        <ul class="links">
+          <li><a href="/welcome"><i class="icon-home"></i></a></li>
+          <li><a href="#"><i class="icon-off"></i></a></li>
+        </ul>
+      </nav>
+    <div class="header-img" {{bind-attr style=headerBg}}>
+      <span class="party-name center-block">{{name}}</span>
+      </div>
+    <div id="party-info">
+      <span class="party-desc">{{description}}</span>
+      <div class="party-info-section">
+        <span class="info-title" id="creator">Who?</span>
+        <div class="info-pic"></div>
+      </div>
+      <div class="party-info-section">
+        <span class="info-title" id="location">Where?</span>
+        <div class="info-pic">{{location}}</div>
+      </div>
+      <div class="party-info-section">
+        <span class="info-title" id="date">When?</span>
+        <div class="info-pic">{{timeUntil}}</div>
+      </div>
+        <div id="money-info-section">
+          <div class="scale-wrapper">
+            <span class="amount left-price">$0</span>
+            <div class="scale"><span></span></div>
+            <span class="amount right-price">${{totalCost}}</span>
+          </div>
+          <div class="donate">
+            <input class="donate-input" {{bind-attr placeholder=minDonationWithDollar}}  name="donation"></input>
+            <div class="donate-btn create-btn" onclick="window.addAttendee()">Pitch In</div>
+        </div>
+        <div class="invite">
+          <a href="#"><div class="invite-btn create-btn">Invite Your Crew</div></a>
+        </div>
+        <div class="map"></div>
+      </div>
+</body>
+</html>
