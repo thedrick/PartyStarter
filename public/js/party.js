@@ -151,10 +151,11 @@ $(document).ready(function() {
 		        attendee.set("partyid", localStorage["currentParty"]);
 		        attendee.set("donation", donation);
 		      }
-			  attendee.save();
-			  party.set("numAttendees", String(Number(party.get("numAttendees")) + isNewAttendee));
-			  party.set("fundedCost", String(Number(party.get("fundedCost")) + donationValue));
-			  party.save();
+			  attendee.save().then(function() {
+          party.set("numAttendees", String(Number(party.get("numAttendees")) + isNewAttendee));
+          party.set("fundedCost", String(Number(party.get("fundedCost")) + donationValue));
+          party.save();
+        });
 		  }, function(err){
 			  console.log("Couldn't get attendees");
 			  return;

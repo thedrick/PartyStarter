@@ -73,12 +73,16 @@
       <div class="parties">
         {{#each}}
           {{#link-to "party" objectId}}
-          <div class="party" id="party1">
-            <div class="caption">
-              <div class="title">{{name}}</div>
-              <div class="info">
-                <div class="days-info">
-                  <span class="days1">{{timeUntil}}</span>
+            <div class="party" {{bind-attr style=feedBg}}>
+              <span class="event-name">{{name}}</span>
+              <div class="event-numbers">
+                <div class="third num-people">
+                  <span class="large-number">{{numAttendees}}</span>
+                  <span class="number-desc">Partiers</span>
+                </div>
+                <div class="third total-cost">
+                  <span class="large-number">${{totalCost}}</span>
+                  <span class="number-desc">Needed</span>
                 </div>
                 <div class="money-info">
                   <span class="money1">${{totalCost}}</span>

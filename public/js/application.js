@@ -26,6 +26,7 @@ PartyStarter.Party = Ember.Model.extend({
     return "never";
   }).property('date')
 , name: Ember.attr()
+, numAttendees: Ember.attr()
 , description: Ember.attr()
 , location: Ember.attr()
 , minDonation: Ember.attr(Number)
