@@ -18,29 +18,50 @@ PartyStarter.Party = Ember.Model.extend({
   objectId: Ember.attr()
 , date: Ember.attr(Date)
 , host: Ember.attr()
-, timeUntil: (function() {
+, timeUntilValue: (function() {
     var then = moment(this.get("date"));
     if (!!then) {
-      var time = then.fromNow();
-      return time.substring(3, time.length - 4);
+      var time = then.fromNow()
+        , text = time.substring(3, time.length - 4);
+      
+      console.log("timeUntil", time, "text", text);
+	  return text.split(' ')[0];
+    }
+    return "";
+  }).property('date')
+, timeUntilUnit: (function() {
+    var then = moment(this.get("date"));
+    if (!!then) {
+      var time = then.fromNow()
+        , text = time.substring(3, time.length - 4);
+      
+      console.log("timeUntil", time, "text", text);
+	  var val = text.split(' ')[1];
+	  if (val == 'h') {
+		  return 'Hours';
+	  } else if (val == 'mo') {
+		  return 'Months';
+	  } else {
+		  return 'Days';
+	  }
     }
     return "";
   }).property('date')
 , fancyDate: (function() {
-  var time = moment(this.get("date"));
-  if (!!time) {
-    var displayDate = time.format('MMMM Do YYYY');
-    return displayDate;
-  }
-  return "";
+    var time = moment(this.get("date"));
+    if (!!time) {
+      var displayDate = time.format('MMMM Do YYYY');
+      return displayDate;
+    }
+    return "";
   }).property('date')
 , fancyTime: (function() {
-  var time = moment(this.get("date"));
-  if (!!time) {
-    var displayDate = time.format('hh:mm a');
-    return displayDate;
-  }
-  return "";
+    var time = moment(this.get("date"));
+    if (!!time) {
+      var displayDate = time.format('hh:mm a');
+      return displayDate;
+    }
+    return "";
   }).property('date')
 , name: Ember.attr()
 , mapdefault: Ember.computed(function() {
@@ -68,7 +89,6 @@ PartyStarter.Party = Ember.Model.extend({
     }
     return String(remaining);
   }).property('totalCost', 'fundedCost')
-// , photoUrl: Ember.attr()
 , headerBg: Ember.computed(function() {
     var headerImages = ['hands.jpg', 'lawn-party.jpg', 'party.jpg', 'pour.jpg', 'sitting.jpg', 'more-beer.jpg', 'miley.jpg', 'more-hands.jpg', 'chill-apt.jpg', 'cocktails.jpg', 'legs.jpg', 'lan.jpg', 'more-miley.jpg', 'twerk.jpg'];
     return "background: url('/img/" + headerImages[Math.floor(Math.random()*headerImages.length)] + "') no-repeat center center scroll;";
