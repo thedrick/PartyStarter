@@ -18,8 +18,6 @@ $(document).ready(function() {
       party.set(element.name, element.value);
     }
     party.set("host", user.id);
-    party.set("fundedCost", 0);
-	party.set("numAttendees", 0);
 	  var photoUploadControl = $("#createPartyPhoto")[0];
 	  if (photoUploadControl.files.length > 0) {
   		var photo = photoUploadControl.files[0];
@@ -41,6 +39,7 @@ $(document).ready(function() {
 		party.set("photoUrl", parseUrl);
 		party.set("photoFile", parseFile);
 		party.set("fundedCost", "0");
+    party.set("numAttendees", "0");
 	    party.save(null, { 
 	      success: function(obj) {
 	        console.log("Successfully saved a party ", obj);
@@ -124,11 +123,12 @@ $(document).ready(function() {
   }
 
   window.addAttendee = function() {
-      var user = Parse.User.current();
-      var donation = $(".donate-input").val();
-      var donationValue = Number(donation);
+    var user = Parse.User.current();
+    var donation = $(".donate-input").val();
+    var donationValue = Number(donation);
 	  var partyQuery = new Parse.Query(Party);
 	  partyQuery.get(localStorage["currentParty"]).then(function(party) {
+      console.log(party);
 		  var minDonation = Number(party.get("minDonation"));
 		  if (minDonation > donationValue) {
 			  alert("You must donate at least $" + String(minDonation) + "!");
