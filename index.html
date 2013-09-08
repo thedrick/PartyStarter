@@ -45,7 +45,6 @@
           <form id="createPartyForm" action="javascript:createParty();">
             <div class="inputrow"><span class="inputlabel">Event Name</span><input type="text" name="name" id="createPartyName"></div>
             <div class="inputrow"><span class="inputlabel">Location</span><input type="text" name="location" id="createPartyLocation"></div>
-            <div class="inputrow"><span class="inputlabel">Photo</span><input type="file" name="photo" id="createPartyPhoto"></div>
             <div class="inputrow"><span class="inputlabel">Date &amp; Time</span><input type="datetime-local" name="date" id="createPartyDate"></div>
             <div class="inputrow"><span class="inputlabel">Total Cost</span><input type="number" name="totalCost" id="createPartyTotalCost"></div>
             <div class="inputrow"><span class="inputlabel">Minimum Donation</span><input type="number" name="minDonation" id="createPartyMinDonation"></div>
@@ -80,7 +79,7 @@
                   <span class="number-desc">Partiers</span>
                 </div>
                 <div class="third total-cost">
-                  <span class="large-number">${{totalCost}}</span>
+                  <span class="large-number">${{remainingCostUpdate}}</span>
                   <span class="number-desc">Needed</span>
                 </div>
                 <div class="third time-until">
@@ -109,7 +108,7 @@
       <span class="party-desc center-block">{{description}}</span>
       <div class="party-info-section">
         <span class="info-title" id="creator">Who?</span>
-        <div class="info-pic"><img {{bind-attr src=photoUrl}} /></div>
+        <div class="info-pic"></div>
       </div>
       <div class="party-info-section">
         <span class="info-title" id="location">Where?</span>
