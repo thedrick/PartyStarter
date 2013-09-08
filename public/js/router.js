@@ -20,6 +20,7 @@ PartyStarter.IndexRoute = Ember.Route.extend({
 
 PartyStarter.PartyRoute = Ember.Route.extend({
   model: function(params) {
+    localStorage["currentParty"] = params.party_id;
     return PartyStarter.Party.find(params.party_id);
   }
 });
