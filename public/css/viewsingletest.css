@@ -1,0 +1,171 @@
+/* View Party */
+.header-img {
+    width: 100%;
+    -webkit-box-shadow: 4px 0 4px #555;
+    -moz-box-shadow: 4px 0 4px #555;
+    box-shadow: 4px 0 4px #555;
+    top: 0;
+    bottom: 60%;
+    opacity: 0.8;
+	height: 300px;
+	background-color: #808080;
+}
+
+.party-name {
+    color: #FFF;
+    font: 6em 'Gudea', sans-serif;
+    font-style: italic;
+    opacity: .8;
+    padding-top: 100px;
+    text-shadow: 1px 1px 5px #333;
+    text-transform: uppercase;
+	text-align: center;
+}
+
+.party-view {
+	width: 100%;
+/*	background-color: #808080;
+*/	height: auto;
+	font: 1em 'Gudea', sans-serif;
+}
+
+.subsection {
+	width: 80%;
+	height: auto;
+	margin: 0 auto;
+    /*-webkit-box-shadow: 4px 0 4px #555;
+    -moz-box-shadow: 4px 0 4px #555;
+    box-shadow: 4px 0 4px #555;*/
+}
+
+.party-details {
+	width: 33%;
+	display: inline-block;
+	margin: 0 auto;
+	height: 100%;
+	text-align: center;
+	padding-top: 2em;
+	padding-bottom: 2em;
+    /*-webkit-box-shadow: 2px 0 2px #555;
+    -moz-box-shadow: 2px 0 2px #555;
+    box-shadow: 2px 0 2px #555;*/
+}
+
+.detail-title {
+	font-size: 2.4em;
+	font-weight: 200;
+	color: #555;
+}
+
+.big {
+	font-size: 2em;
+	font-weight: 200;
+	text-transform: uppercase;
+	letter-spacing: 1.6px;
+}
+
+.detail-img {
+	border-radius: 50%;
+	width: 200px;
+	height: 200px;
+	background-color: #224400;
+	margin: 0 auto;
+	margin-bottom: 30px;
+	margin-top: 20px;
+}
+
+.party-info {
+	display: inline-block;
+	margin: 0 auto;
+	padding-top: 30px;
+	font: 1em 'Gudea', sans-serif;
+	padding-bottom: 40px;
+	vertical-align: top;
+	padding-left: 20px;
+}
+
+.details {
+	width: 48%;
+	font-size: 1.3em;
+	font-weight: 200;
+/*	padding-left: 30px;
+*/	margin: 0 auto;
+}
+
+.donate {
+	width: 48%;
+	display: inline-block;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.donate-input {
+	height: 30px;
+	width: 360px;
+	font-size: 1.2em;
+	padding: 10px	;
+}
+
+.donate-btn {
+    background: #3D95CE;
+    border: 0;
+    border-radius: 8px;
+    color: #FFF;
+    font: 1.4em/1em 'Source Sans Pro', sans-serif;
+    font-weight: 200;
+    margin-top: 20px;
+    padding: 12px 4px;
+    text-decoration: none;
+    width: 380px;
+    -webkit-box-shadow: 0 0 6px #555;
+    -moz-box-shadow: 0 0 6px #555;
+    box-shadow: 0 0 6px #555;
+    -webkit-transition: background 0.2s ease-in-out;
+    -moz-transition: background 0.2s ease-in-out;
+    -o-transition: background 0.2s ease-in-out;
+    transition: background 0.2s ease-in-out;
+	margin: 0 auto;
+	margin-top: 30px;
+}
+
+.invite-btn, .finish-btn {
+    background: #3D95CE;
+    border: 0;
+    border-radius: 8px;
+    color: #FFF;
+    font: 1.4em/1em 'Source Sans Pro', sans-serif;
+    font-weight: 200;
+    margin-top: 20px;
+    padding: 12px 4px;
+    text-decoration: none;
+    width: 380px;
+    -webkit-box-shadow: 0 0 6px #555;
+    -moz-box-shadow: 0 0 6px #555;
+    box-shadow: 0 0 6px #555;
+    -webkit-transition: background 0.2s ease-in-out;
+    -moz-transition: background 0.2s ease-in-out;
+    -o-transition: background 0.2s ease-in-out;
+    transition: background 0.2s ease-in-out;
+	display: inline-block;
+	margin: 0 auto;
+	width: 40%;
+	text-align: center;
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
+.invite-btn {
+	background: green;
+}
+
+.finish-btn {
+	background: red;
+}
+
+.buttons {
+/*	display: none;*/
+	margin: 0 auto;
+	text-align: center;
+	margin-top: 40px;
+	margin-bottom: 50px;
+}
