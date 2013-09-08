@@ -219,7 +219,6 @@ PartyStarter.AdminController = Ember.ArrayController.extend({
       Parse.Cloud.run('payout', { party_id: objectId }, { 
         success: function(res) {
           console.log(res);
-          Ember.$
         }
       , error: function(err) {
           console.log(err);

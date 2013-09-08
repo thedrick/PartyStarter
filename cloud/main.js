@@ -104,6 +104,10 @@ Parse.Cloud.define('fundParty', function(request, response) {
 Parse.Cloud.define('payout', function(request, response) {
   var party_id = request.params['party_id'];
 
+  var noteForParty = function(party) {
+    return "Funds for party '" + party.get('name') + "'!";
+  };
+
   (new Parse.Query("Party")).equalTo("objectId", party_id).first().then(function(party) {
     (new Parse.Query(Parse.User)).equalTo("objectId", party.get('host')).first().then(function (host) {
       var funded = parseFloat(party.get('fundedCost'))
@@ -114,18 +118,16 @@ Parse.Cloud.define('payout', function(request, response) {
       console.log("flex: " + party.get('flexible'));
 
       if (funded > total || party.get('flexible')) {
-        /*
         return Parse.Cloud.httpRequest({
           method: 'POST'
         , url: "https://api.venmo.com/payments"
         , body: {
             note: noteForParty(party)
-          , email: host.get('email');
+          , email: host.get('email')
           , access_token: "JwaqqrXxhQcXcEmyBL6uM7SFGqFzu3G8"
           , amount: funded
           }
         });
-        */
         console.log("we did it!");
       } else {
         console.log("we have to refund :(");
@@ -133,6 +135,19 @@ Parse.Cloud.define('payout', function(request, response) {
         return (new Parse.Query("Attendee")).equalTo("partyid", party_id).find().then(function(attendees) {
           console.log(attendees);
           console.log(attendees.length);
+          attendees.forEach(function(attendee) {
+            var donation = Number(attendee.get('donation'));
+            return Parse.Cloud.httpRequest({
+              method: 'POST'
+            , url: "https://api.venmo.com/payments"
+            , body: {
+                note: "Refunded funds for party '" + party.get('name') + "'"
+              , email: attendee.get('username')
+              , access_token: "JwaqqrXxhQcXcEmyBL6uM7SFGqFzu3G8"
+              , amount: donation
+              }
+            });
+          });
         });
       }
     }, function() {
