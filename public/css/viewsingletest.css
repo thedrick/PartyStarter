@@ -1,14 +1,13 @@
 /* View Party */
 .header-img {
-    width: 100%;
-    -webkit-box-shadow: 4px 0 4px #555;
-    -moz-box-shadow: 4px 0 4px #555;
-    box-shadow: 4px 0 4px #555;
-    top: 0;
-    bottom: 60%;
-    opacity: 0.8;
-	height: 300px;
-	background-color: #808080;
+  width: 100%;
+  -webkit-box-shadow: 4px 0 4px #555;
+  -moz-box-shadow: 4px 0 4px #555;
+  box-shadow: 4px 0 4px #555;
+	height: 200px;
+}
+.header-img .event-numbers {
+  opacity: 1;
 }
 
 .party-name {
