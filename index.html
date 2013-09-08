@@ -104,7 +104,21 @@
       </nav>
 
       <div class="header-img" {{bind-attr style=headerBg}}>
-        <span class="party-name center-block">{{name}}</span>
+        <span class="event-name">{{name}}</span>
+        <div class="event-numbers">
+          <div class="third num-people">
+            <span class="large-number">{{numAttendees}}</span>
+            <span class="number-desc">Partiers</span>
+          </div>
+          <div class="third total-cost">
+            <span class="large-number">${{remainingCostUpdate}}</span>
+            <span class="number-desc">Needed</span>
+          </div>
+          <div class="third time-until">
+            <span class="large-number">{{timeUntil}}</span>
+            <span class="number-desc">Days</span>
+          </div>
+        </div>
       </div>
 
       <div id="party-info">
