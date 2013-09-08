@@ -80,7 +80,8 @@ $(document).ready(function() {
   window.addAttendee = function() {
     loadScale();
     var user = Parse.User.current();
-    var donation = $(".donate-input").val();
+    var donationInput = $(".donate-input").val();
+	var donation = donationInput.replace("$", "");
     var donationValue = Number(donation);
 	  var partyQuery = new Parse.Query(Party);
 	  partyQuery.get(localStorage["currentParty"]).then(function(party) {
