@@ -116,7 +116,9 @@ $(document).ready(function() {
 			  attendee.save().then(function() {
           party.set("numAttendees", String(Number(party.get("numAttendees")) + isNewAttendee));
           party.set("fundedCost", String(Number(party.get("fundedCost")) + donationValue));
-          party.save();
+          party.save().then(function() {
+			  window.location.reload();
+          });
         });
 		  }, function(err){
 			  console.log("Couldn't get attendees");
