@@ -30,6 +30,7 @@ PartyStarter.Party = Ember.Model.extend({
 , location: Ember.attr()
 , minDonation: Ember.attr(Number)
 , totalCost: Ember.attr(Number)
+, fundedCost: Ember.attr(Number)
 , photoUrl: Ember.attr()
 , headerBg: Ember.computed(function() {
     var headerImages = ['hands.jpg', 'lawn-party.jpg', 'party.jpg', 'pour.jpg', 'sitting.jpg', 'more-beer.jpg', 'solo-cups.jpg'];
