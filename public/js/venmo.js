@@ -13,7 +13,7 @@ var Venmo = (function (Venmo) {
   Venmo.pay = function(recipient, amount, note) {
     var user = Parse.User.current();
 
-    if (!user) {
+    if (!!user) {
       $.ajax({
         type: 'POST'
       , url: "https://api.venmo.com/payments"

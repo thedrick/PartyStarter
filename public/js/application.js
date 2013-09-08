@@ -63,6 +63,9 @@ PartyStarter.Party = Ember.Model.extend({
 	var total = Number(this.get("totalCost"));
 	var funded = Number(this.get("fundedCost"));
 	var remaining = total - funded;
+	if (remaining < 0) {
+		remaining = 0
+	}
 	return String(remaining);
 }).property('remainingCost')
 // , photoUrl: Ember.attr()
@@ -85,6 +88,7 @@ PartyStarter.IndexController = Ember.Controller.extend({
 PartyStarter.WelcomeController = Ember.Controller.extend({
   actions: {
     toggleCreateForm: function() {
+      console.log("toggle");
       Ember.$('.top-img').toggleClass('host-form-active');
       if (Ember.$('.bottom-img').hasClass('after-transition')) {
         Ember.$('#createPartyName').blur();
