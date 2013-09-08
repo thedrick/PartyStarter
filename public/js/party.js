@@ -139,6 +139,7 @@ $(document).ready(function() {
 		  attendeeQuery.equalTo("partyid", localStorage["currentParty"]);
 		  var attendee;
 		  attendeeQuery.find().then(function(result) {
+          console.log(result);
 		      if (result && result.length > 0) {
 		        attendee = result[0];
 		        var currentDonation = Number(attendee.get("donation"));
