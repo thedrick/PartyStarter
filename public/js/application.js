@@ -34,9 +34,7 @@ PartyStarter.Party = Ember.Model.extend({
     if (!!then) {
       var time = then.fromNow()
         , text = time.substring(3, time.length - 4);
-      
-      console.log("timeUntil", time, "text", text);
-	  return text.split(' ')[0];
+      return text.split(' ')[0];
     }
     return "";
   }).property('date')
@@ -44,17 +42,16 @@ PartyStarter.Party = Ember.Model.extend({
     var then = moment(this.get("date"));
     if (!!then) {
       var time = then.fromNow()
-        , text = time.substring(3, time.length - 4);
-      
-      console.log("timeUntil", time, "text", text);
-	  var val = text.split(' ')[1];
-	  if (val == 'h') {
-		  return 'Hours';
-	  } else if (val == 'mo') {
-		  return 'Months';
-	  } else {
-		  return 'Days';
-	  }
+        , text = time.substring(3, time.length - 4)
+        , val = text.split(' ')[1];
+
+      if (val == 'h') {
+        return 'Hours';
+      } else if (val == 'mo') {
+        return 'Months';
+      } else {
+        return 'Days';
+      }
     }
     return "";
   }).property('date')
@@ -92,8 +89,8 @@ PartyStarter.Party = Ember.Model.extend({
 , totalCost: Ember.attr(Num)
 , fundedCost: Ember.attr(Num)
 , remainingCost: (function() {
-    var total = Number(this.get("totalCost"))
-      , funded = Number(this.get("fundedCost"))
+    var total = this.get("totalCost")
+      , funded = this.get("fundedCost")
       , remaining = total - funded;
     if (remaining < 0) {
       remaining = 0
