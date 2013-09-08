@@ -3,6 +3,7 @@ Parse.initialize("vpkqQoxmJU4HqOx57O81id3RTSwuKTbGJprxGgQc", "mXbf5O1xhVSjlMb51t
 $(document).ready(function() {
 
   var Party = Parse.Object.extend("Party");
+  var Attendee = Parse.Object.extend("Attendee");
 
   window.createParty = function() {
     var user = Parse.User.current();
@@ -119,6 +120,49 @@ $(document).ready(function() {
       caption.height(image.height());
       caption.fadeOut();
     });
+  }
+
+  window.addAttendee = function() {
+      var user = Parse.User.current();
+      var donation = $(".donate-input").val();
+      var donationValue = Number(donation);
+	  var partyQuery = new Parse.Query(Party);
+	  partyQuery.get(localStorage["currentParty"]).then(function(party) {
+		  var minDonation = Number(party.get("minDonation"));
+		  if (minDonation > donationValue) {
+			  alert("You must donate at least $" + String(minDonation) + "!");
+			  return;
+		  }
+		  var isNewAttendee = 0;
+		  var attendeeQuery = new Parse.Query(Attendee);
+		  attendeeQuery.equalTo("username", user.get("username"));
+		  attendeeQuery.equalTo("partyid", localStorage["currentParty"]);
+		  var attendee;
+		  attendeeQuery.find().then(function(result) {
+		      if (result && result.length > 0) {
+		        attendee = result[0];
+		        var currentDonation = Number(attendee.get("donation"));
+		        currentDonation += donationValue;
+		        attendee.set("donation", String(currentDonation));
+		      } else {
+		        attendee = new Attendee();
+		        isNewAttendee = 1;
+		        attendee.set("username", user.get("username"));
+		        attendee.set("partyid", localStorage["currentParty"]);
+		        attendee.set("donation", donation);
+		      }
+			  attendee.save();
+			  party.set("numAttendees", String(Number(party.get("numAttendees")) + isNewAttendee));
+			  party.set("fundedCost", String(Number(party.get("fundedCost")) + donationValue));
+			  party.save();
+		  }, function(err){
+			  console.log("Couldn't get attendees");
+			  return;
+		  });
+	  }, function(err) {
+		  console.log("Couldn't find party");
+		  return;
+	  });
   }
   
   $('#createPartyButton').on('click', window.createParty);
