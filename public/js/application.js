@@ -28,7 +28,14 @@ PartyStarter.Party = Ember.Model.extend({
 , description: Ember.attr()
 , location: Ember.attr()
 , minDonation: Ember.attr(Number)
+, minDonationWithDollar: (function() {
+	var amount = this.get("minDonation");
+	var finMin = "$" + amount;
+	console.log(finMin);
+	return finMin;
+}).property('minDonation')
 , totalCost: Ember.attr(Number)
+, fundedCost: Ember.attr(Number)
 , photoUrl: Ember.attr()
 , headerBg: Ember.computed(function() {
     var headerImages = ['hands.jpg', 'lawn-party.jpg', 'party.jpg', 'pour.jpg', 'sitting.jpg', 'more-beer.jpg', 'solo-cups.jpg'];

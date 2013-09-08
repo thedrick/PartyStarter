@@ -38,6 +38,7 @@ $(document).ready(function() {
 		var parseUrl = parseFile.url();
 		party.set("photoUrl", parseUrl);
 		party.set("photoFile", parseFile);
+		party.set("fundedCost", "0");
 	    party.save(null, { 
 	      success: function(obj) {
 	        console.log("Successfully saved a party ", obj);
