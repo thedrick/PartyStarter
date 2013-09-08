@@ -6,7 +6,7 @@
     <link href="http://fonts.googleapis.com/css?family=Gudea:400italic|Source+Sans+Pro:200,300,400" rel="stylesheet" type="text/css">
     <link href="/css/style.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" type="text/css" href="/css/create.css">
-	  <link rel="stylesheet" tyep="text/css" href="/css/viewsingle.css" />
+	<link rel="stylesheet" tyep="text/css" href="/css/viewsingle.css" />
     <link href="/css/create.css" rel="stylesheet" type="text/css" />
     <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet" />
     <script src="http://www.parsecdn.com/js/parse-1.2.10.min.js"></script>
@@ -41,7 +41,7 @@
     <script type="text/x-handlebars" data-template-name="welcome">
       <div class="black-bg">
         <div class="top-img">
-          <span class="cant-stop center-block">We Can't Stop</span>
+          <span class="cant-stop center-block" {{ action 'toggleCreateForm' }}>We Can't Stop</span>
           <span class="subtitle center-block" {{ action 'toggleCreateForm' }}>Host a Party</span>
 
           <form id="createPartyForm" action="javascript:createParty();">
@@ -104,7 +104,21 @@
       </nav>
 
       <div class="header-img" {{bind-attr style=headerBg}}>
-        <span class="party-name center-block">{{name}}</span>
+        <span class="event-name">{{name}}</span>
+        <div class="event-numbers">
+          <div class="third num-people">
+            <span class="large-number">{{numAttendees}}</span>
+            <span class="number-desc">Partiers</span>
+          </div>
+          <div class="third total-cost">
+            <span class="large-number">${{remainingCostUpdate}}</span>
+            <span class="number-desc">Needed</span>
+          </div>
+          <div class="third time-until">
+            <span class="large-number">{{timeUntil}}</span>
+            <span class="number-desc">Days</span>
+          </div>
+        </div>
       </div>
 
       <div id="party-info">
@@ -137,7 +151,7 @@
             <div class="donate-btn create-btn" onclick="window.addAttendee()">Pitch In</div>
           </div>
         </div>
-        
+
         <div class="invite">
           <a href="#"><div class="invite-btn create-btn">Invite Your Crew</div></a>
         </div>
