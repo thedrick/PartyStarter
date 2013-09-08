@@ -121,84 +121,64 @@ $(document).ready(function() {
     });
   }
 
+  window.updateParty = function(isNewAttendee, donationValue) {
+    var partyQuery = new Parse.Query(Party);
+    partyQuery.get(localStorage["currentParty"]).then(function(party) {
+      var currentFunds = Number(party.get("fundedCost"));
+      var numAttendees = Number(party.get("numAttendees"));
+      var minDonation = Number(party.get("minDonation"));
+      if (minDonation > donationValue) {
+        alert("You must donate at least $" + minDonation + " to join this party!");
+        return;
+      }
+      currentFunds += donationValue;
+      numAttendees += isNewAttendee;
+      party.set("numAttendees", String(numAttendees));
+      party.set("fundedCost", String(currentFunds));
+      party.save();
+    }, function(err) {
+      console.log("Cannot find party ", err);
+    });
+  }
+
   window.addAttendee = function() {
     var user = Parse.User.current();
     var donation = $(".donate-input").val();
+    var donationValue = Number(donation);
     if (donation.length == 0) {
       alert("You must enter a donation amount!");
       return;
     } else if (user == undefined) {
       alert("You must log in to donate!");
+      window.location.replace("/");
       return;
     }
     var Attendee = Parse.Object.extend("Attendee");
     var attendeeQuery = new Parse.Query(Attendee);
     attendeeQuery.equalTo("username", user.get("username"));
     attendeeQuery.equalTo("partyid", localStorage["currentParty"]);
-    var isNewAttendee = false;
-    attendeeQuery.find({
-      success: function(attendees) {
-        var donationValue = Number(donation);
-        var attendee;
-        if (attendees.length > 0) {
-          attendee = attendees[0];
-          attendee.set("donation", String(Number(attendee.get("donation")) + donationValue));
-        } else {
-          attendee = new Attendee();
-          isNewAttendee = true;
-          attendee.set("username", user.get("username"));
-          attendee.set("donation", String(donationValue));
-          attendee.set("partyid", localStorage["currentParty"]);
-        }
-        
-        attendee.save(null, {
-          success: function(obj) {
-            console.log("Successfully saved a new attendee", obj);
-            var query = new Parse.Query(Party);
-            query.get(localStorage["currentParty"], {
-              success: function(result) {
-                if (Number(result.get("minDonation")) <= donationValue) {
-                  var currentFund = Number(result.get("fundedCost"));
-                  currentFund += donationValue
-                  result.set("fundedCost", String(currentFund));
-                  var currentAttendeeCount = Number(result.get("numAttendees"));
-                  if (isNewAttendee) {
-                    result.set("numAttendees", String(currentAttendeeCount + 1));
-                    result.save(null, {
-                      success: function(obj) {
-                        console.log("successfully updated current funds", obj);
-                      },
-                      error: function(err) {
-                        console.log("Error incrementing the current funds ", err);
-                      }
-                    });
-                  }
-                } else {
-                  attendee.destroy({
-                    success: function() {
-                      console.log("Successfully destoryed attendee after non-minimum dontaion attempted");
-                      alert("You must submit at least the minimum donation to join this party.");
-                    },
-                    error: function(err) {
-                      console.log("Encountered error: ", err);
-                      alert("You must submit at least the minimum donation to join this party. Attendee destruction failed");
-                    }
-                  });
-                }
-              }
-          });
-        },
-      error: function(err) {
-        console.log("Error saving new attendee", err);
+    attendeeQuery.find().then(function(result) {
+      var attendee;
+      var isNewAttendee = 0;
+      if (result) {
+        attendee = result[0];
+        var currentDonation = Number(attendee.get("donation"));
+        currentDonation += donationValue;
+        attendee.set("donation", String(currentDonation));
+      } else {
+        attendee = new Attendee();
+        isNewAttendee = 1;
+        attendee.set("username", user.get("username"));
+        attendee.set("partyid", localStorage["currentParty"]);
+        attendee.set("donation", donation);
       }
+      console.log("Attendee ", attendee);
+      attendee.save().then(function() {
+        window.updateParty(isNewAttendee, donationValue);
+      });
+    }, function(err) {
+      console.log("Error saving attendee ", err);
     });
-
-      },
-      error: function(err) {
-        console.log("Failed to check if the attendee exists. Error: ", err);
-      }
-    });
-    
   }
   
   $('#createPartyButton').on('click', window.createParty);
