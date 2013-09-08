@@ -45,7 +45,8 @@ PartyStarter.Party = Ember.Model.extend({
     if (!!then) {
       var time = then.fromNow()
         , text = time.substring(3, time.length - 4);
-      return text.split(' ')[0];
+      if (text.split(' ')[0] == 'an') return '1'
+      else return text.split(' ')[0];
     }
     return "";
   }).property('date')
@@ -55,9 +56,10 @@ PartyStarter.Party = Ember.Model.extend({
       var time = then.fromNow()
         , text = time.substring(3, time.length - 4)
         , val = text.split(' ')[1];
-
       if (val == 'h') {
         return 'Hours';
+      } else if (val == '') {
+        return 'Hour';
       } else if (val == 'mo') {
         return 'Months';
       } else {
