@@ -21,26 +21,29 @@ PartyStarter.Party = Ember.Model.extend({
 , timeUntil: (function() {
     var then = moment(this.get("date"));
     if (!!then) {
-      var time = then.fromNow();
-      return time.substring(3, time.length - 4);
+      var time = then.fromNow()
+        , text = time.substring(3, time.length - 4);
+      
+      console.log("timeUntil", time, "text", text);
+      return text;
     }
     return "";
   }).property('date')
 , fancyDate: (function() {
-  var time = moment(this.get("date"));
-  if (!!time) {
-    var displayDate = time.format('MMMM Do YYYY');
-    return displayDate;
-  }
-  return "";
+    var time = moment(this.get("date"));
+    if (!!time) {
+      var displayDate = time.format('MMMM Do YYYY');
+      return displayDate;
+    }
+    return "";
   }).property('date')
 , fancyTime: (function() {
-  var time = moment(this.get("date"));
-  if (!!time) {
-    var displayDate = time.format('hh:mm a');
-    return displayDate;
-  }
-  return "";
+    var time = moment(this.get("date"));
+    if (!!time) {
+      var displayDate = time.format('hh:mm a');
+      return displayDate;
+    }
+    return "";
   }).property('date')
 , name: Ember.attr()
 , mapdefault: Ember.computed(function() {
