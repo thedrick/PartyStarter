@@ -17,6 +17,7 @@ Ember.Model.reopenClass({
 PartyStarter.Party = Ember.Model.extend({
   objectId: Ember.attr()
 , date: Ember.attr(Date)
+, host: Ember.attr()
 , timeUntil: (function() {
     var then = moment(this.get("date"));
     if (!!then) {
@@ -33,7 +34,6 @@ PartyStarter.Party = Ember.Model.extend({
 , minDonationWithDollar: (function() {
 	var amount = this.get("minDonation");
 	var finMin = "$" + amount;
-	console.log(finMin);
 	return finMin;
 }).property('minDonation')
 , totalCost: Ember.attr(Number)
@@ -82,3 +82,23 @@ PartyStarter.WelcomeController = Ember.Controller.extend({
   }
 });
 
+PartyStarter.PlaceholderField = Ember.TextField.extend({
+  attributeBindings: ['placeholder']
+});
+
+PartyStarter.PartyController = Ember.ObjectController.extend({
+  actions: {
+    pitchIn: function() {
+      var donateAmount = parseFloat(this.get('donateAmount').replace('$',''));
+      Parse.Cloud.run('fundParty', { party_id: this.get('objectId'), amount: donateAmount }, {
+        success: function(response) {
+          console.log(response);
+        }
+      , error: function(response) {
+          console.log(response);
+        }
+      });
+    }
+  }
+
+});

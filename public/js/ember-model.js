@@ -1323,7 +1323,7 @@ Ember.RESTAdapter = Ember.Adapter.extend({
   find: function(record, id) {
     var url = this.buildURL(record.constructor, id),
         self = this;
-
+  
     return this.ajax(url).then(function(data) {
       self.didFind(record, id, data);
       return record;
