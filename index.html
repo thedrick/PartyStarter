@@ -41,7 +41,7 @@
     <script type="text/x-handlebars" data-template-name="welcome">
       <div class="black-bg">
         <div class="top-img">
-          <span class="cant-stop center-block">We Can't Stop</span>
+          <span class="cant-stop center-block" {{ action 'toggleCreateForm' }}>We Can't Stop</span>
           <span class="subtitle center-block" {{ action 'toggleCreateForm' }}>Host a Party</span>
 
           <form id="createPartyForm" action="javascript:createParty();">
@@ -137,7 +137,7 @@
             <div class="donate-btn create-btn" onclick="window.addAttendee()">Pitch In</div>
           </div>
         </div>
-        
+
         <div class="invite">
           <a href="#"><div class="invite-btn create-btn">Invite Your Crew</div></a>
         </div>
