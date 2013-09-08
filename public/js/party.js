@@ -120,6 +120,7 @@ $(document).ready(function() {
       console.log("Couldn't get attendees");
       return;
     });
+    $(".donate-input").val("").blur();
   }
   
   $('#createPartyButton').on('click', window.createParty);
