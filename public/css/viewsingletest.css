@@ -120,6 +120,16 @@ hr {
 	margin: 40px auto 50px;
 	text-align: center;
 }
+.flexible {
+  display: none;
+  font-size: .75em;
+  float: left;
+  margin-top: 4px;
+  width: 144px;
+}
+.is-flexible {
+  display: block;
+}
 
 /*** Media Queries */
 @media all and (max-width: 950px) {

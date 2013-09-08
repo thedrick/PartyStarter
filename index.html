@@ -48,10 +48,13 @@
             <div class="inputrow"><span class="inputlabel">Event Name</span><input type="text" name="name" id="createPartyName"></div>
             <div class="inputrow"><span class="inputlabel">Location</span><input type="text" name="location" id="createPartyLocation"></div>
             <div class="inputrow"><span class="inputlabel">Date &amp; Time</span><input type="datetime-local" name="date" id="createPartyDate"></div>
-            <div class="inputrow"><span class="inputlabel">Total Cost</span><input type="number" name="totalCost" id="createPartyTotalCost"></div>
+            <div class="inputrow"><span class="inputlabel">Total Cost</span><input type="number" name="totalCost" id="createPartyTotalCost">
+              <div class="flexible-subrow">
+                <input type="checkbox" name="flexible" id="createPartyFlexible"> Flexible Funding? <span class="what-is-flex">(Will you hold this if you don't meet total?)</span>
+              </div>
+            </div>
             <div class="inputrow"><span class="inputlabel">Minimum Donation</span><input type="number" name="minDonation" id="createPartyMinDonation"></div>
             <div class="inputrow"><span class="inputlabel">Description</span><textarea name="description" id="createPartyDescription"></textarea></div>
-            <div class="inputrow"><span class="inputlabel"></span><input type="checkbox" name="flexible" id="createPartyFlexbile">Flexible Funding?</div>
             <div class="inputrow"><input class="view-btn center-block" type="button" name="create" id="createPartyButton" value="Let's get it poppin' &rightarrow;"></div>
           </form>
         </div>
@@ -126,6 +129,7 @@
         <div class="wide-subsection">
           <div class="donate">
             <input class="donate-input" {{bind-attr placeholder=minDonationWithDollar}}  name="donation" />
+            <span class="flexible">*Flexible (host will still hold the event if goal not met)</span>
             <div class="donate-btn" onclick="window.addAttendee()">Pitch In &nbsp;<i class="icon-thumbs-up"></i></div>
           </div>
           <div class="description">

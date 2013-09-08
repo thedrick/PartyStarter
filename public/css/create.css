@@ -50,6 +50,17 @@
   content: ':';
 }
 
+#createPartyForm .flexible-subrow {
+  font: .75em/1em 'Source Sans Pro', sans-serif;
+  font-weight: 200;
+  margin-top: -10px;
+  margin-left: 200px;
+  opacity: .7;
+}
+.what-is-flex {
+  font-size: .65em;
+}
+
 #createPartyForm .view-btn {
   font-size: 20px;
   margin-top: 18px;
@@ -70,4 +81,9 @@ input[type="text"] {
 }
 input[type="file"] {
   line-height: 18px !important;
+}
+input[type="checkbox"] {
+  width: 12px !important;
+  height: 12px;
+  margin-right: 8px;
 }
