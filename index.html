@@ -131,7 +131,7 @@
         {{description}}
       </div>
       <div class="party-info donate">
-        <input class="donate-input" placeholder="$5.00"  name="donation" />
+        <input class="donate-input" {{bind-attr placeholder=minDonationWithDollar}}  name="donation" />
         <div class="donate-btn" onclick="window.addAttendee()">Pitch In</div>
       </div>
     </div>

@@ -22,7 +22,9 @@ $(document).ready(function() {
 	    }
     }
     party.set("host", user.id);
-    party.set("hostname", user.get("username"));
+    party.set("hostname", user.get("name"));
+    console.log("User: ", user);
+    console.log("User picture: ", user.get("picture"));
     party.set("hostpicture", user.get("picture"));
 	
 	if (autocompleteLocation.getPlace() !== undefined) {
@@ -39,7 +41,7 @@ $(document).ready(function() {
 		success: function(obj) {
 	        console.log("Successfully saved a party ", obj);
 	        // console.log("url: ", obj.get("photoUrl"));
-			    window.location = '/parties/' + obj.id;
+			    //window.location = '/parties/' + obj.id;
 	      }, 
 	      error: function(obj, err) {
 	        console.log("An error occured: ", err);
