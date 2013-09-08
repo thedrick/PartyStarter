@@ -129,7 +129,7 @@
         <div class="wide-subsection">
           <div class="donate">
             <input class="donate-input" {{ bind-attr placeholder=minDonationWithDollar }} />
-            <span class="flexible">*Flexible (host will still hold the event if goal not met)</span>
+            <span {{ bind-attr class=":flexible flexible:is-flexible" }} >*Flexible (host will still hold the event if goal not met)</span>
             <div class="donate-btn" {{ action 'pitchIn' }}>Pitch In &nbsp;<i class="icon-thumbs-up"></i></div>
           </div>
           <div class="description">

@@ -25,6 +25,17 @@ var Num = {
   }
 }
 
+var FormBool = {
+  deserialize: function(string) {
+    if (!string && string !== 0) { return null; }
+    return (string == "on");
+  },
+  serialize: function (bool) {
+    if (!bool && bool !== 0) { return null; }
+    return (bool ? "on" : "off");
+  }
+}
+
 PartyStarter.Party = Ember.Model.extend({
   objectId: Ember.attr()
 , date: Ember.attr(Date)
@@ -97,6 +108,7 @@ PartyStarter.Party = Ember.Model.extend({
     }
     return String(remaining);
   }).property('totalCost', 'fundedCost')
+, flexible: Ember.attr(FormBool)
 , headerBg: Ember.computed(function() {
     var headerImages = ['hands.jpg', 'lawn-party.jpg', 'party.jpg', 'pour.jpg', 'sitting.jpg', 'more-beer.jpg', 'miley.jpg', 'more-hands.jpg', 'chill-apt.jpg', 'cocktails.jpg', 'legs.jpg', 'lan.jpg', 'more-miley.jpg', 'twerk.jpg'];
     return "background: url('/img/" + headerImages[Math.floor(Math.random()*headerImages.length)] + "') no-repeat center center scroll;";
@@ -116,7 +128,6 @@ PartyStarter.IndexController = Ember.Controller.extend({
 PartyStarter.WelcomeController = Ember.Controller.extend({
   actions: {
     toggleCreateForm: function() {
-      console.log("toggle");
       Ember.$('.top-img').toggleClass('host-form-active');
       if (Ember.$('.bottom-img').hasClass('after-transition')) {
         Ember.$('#createPartyName').blur();

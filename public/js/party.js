@@ -12,11 +12,14 @@ $(document).ready(function() {
     }
     var formArray = $("#createPartyForm").serializeArray();
     var party = new Party();
+    party.set('flexible', false);
     for (var i = 0; i < formArray.length; i++) {
       var element = formArray[i];
 	    if (element == "minDonation" || element == "totalCost") {
 		    party.set(element.name, string(element.value));
-	    } else {
+	    } else if (element == "flexible") { 
+        party.set('flexible', true); 
+      } else {
 		    party.set(element.name, element.value);
 	    }
     }
