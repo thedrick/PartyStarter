@@ -141,6 +141,26 @@ hr {
   }
 }
 
+@media all and (max-width: 850px) {
+  .party-details {
+    width: 32%;
+  }
+  .detail-big {
+    font-size: 1.6em;
+  }
+  .detail-img {
+    width: 120px;
+    height: 120px;
+  }
+  .detail-img img {
+    width: 120px;
+    height: 120px;
+  }
+  .detail-title {
+    font-size: 1.2em;
+  }
+}
+
 @media all and (max-width: 580px) {
   .donate {
     width: 150px;
