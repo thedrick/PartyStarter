@@ -19,6 +19,7 @@ $(document).ready(function() {
     }
     party.set("host", user.id);
     party.set("fundedCost", 0);
+	party.set("numAttendees", 0);
 	  var photoUploadControl = $("#createPartyPhoto")[0];
 	  if (photoUploadControl.files.length > 0) {
   		var photo = photoUploadControl.files[0];

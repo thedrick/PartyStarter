@@ -3,9 +3,10 @@
   <head>
     <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
     <title>PartyStarter</title>
-    <link href="http://fonts.googleapis.com/css?family=Gudea:400italic|Source+Sans+Pro:200,300,400" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Gudea:400italic|Source+Sans+Pro:200,400" rel="stylesheet" type="text/css">
     <link href="/css/style.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" type="text/css" href="/css/create.css">
+	<link href="/css/viewsingle.css" rel="stylesheet" type="text/css" />
     <script src="http://www.parsecdn.com/js/parse-1.2.10.min.js"></script>
   </head>
   <body>
@@ -47,7 +48,7 @@
             <div class="inputrow"><span class="inputlabel">Photo</span><input type="file" name="photo" id="createPartyPhoto"></div>
             <div class="inputrow"><span class="inputlabel">Date &amp; Time</span><input type="datetime-local" name="date" id="createPartyDate"></div>
             <div class="inputrow"><span class="inputlabel">Total Cost</span><input type="number" name="totalCost" id="createPartyTotalCost"></div>
-            <div class="inputrow"><span class="inputlabel">Minimum Donation</span><input type="number" name="minDonation" id="createPartyMinDonation"></div>
+            <div class="inputrow"><span class="inputlabel">Minimum Donation</span><input type="number" name="minDonation" id="createPartyMinDonation"></div      >
             <div class="inputrow"><span class="inputlabel">Description</span><textarea name="description" id="createPartyDescription"></textarea></div>
             <div class="inputrow"><input class="view-btn center-block" type="button" name="create" id="createPartyButton" value="Let's get it poppin' &rightarrow;"></div>
           </form>
@@ -67,8 +68,9 @@
           <li><a href="#">Logout</a></li>
         </ul>
       </nav>
-      
-      <div class="feed">
+    <div class="feed">
+      <span class="heading">Bumpin&apos; Nearby</span>
+      <div class="parties">
         {{#each}}
           {{#link-to "party" objectId}}
             <div class="party" {{bind-attr style=feedBg}}>
@@ -82,12 +84,13 @@
                   <span class="large-number">${{totalCost}}</span>
                   <span class="number-desc">Needed</span>
                 </div>
-                <div class="third time-until">
-                  <span class="large-number">{{timeUntil}}</span>
-                  <span class="number-desc">Days</span>
+                <div class="money-info">
+                  <span class="money1">${{totalCost}}</span>
                 </div>
               </div>
             </div>
+            <img {{bind-attr src=photoUrl}} />
+          </div>
           {{/link-to}}
         {{/each}}
       </div>
