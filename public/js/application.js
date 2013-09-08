@@ -39,11 +39,11 @@ PartyStarter.Party = Ember.Model.extend({
 , fundedCost: Ember.attr(Number)
 , photoUrl: Ember.attr()
 , headerBg: Ember.computed(function() {
-    var headerImages = ['hands.jpg', 'lawn-party.jpg', 'party.jpg', 'pour.jpg', 'sitting.jpg', 'more-beer.jpg', 'solo-cups.jpg'];
+    var headerImages = ['hands.jpg', 'lawn-party.jpg', 'party.jpg', 'pour.jpg', 'sitting.jpg', 'more-beer.jpg', 'solo-cups.jpg', 'miley.jpg', 'more-hands.jpg', 'chill-apt.jpg', 'cocktails.jpg', 'legs.jpg', 'lan.jpg'];
     return "background: url('../img/" + headerImages[Math.floor(Math.random()*headerImages.length)] + "') no-repeat top center scroll;";
   })
 , feedBg: Ember.computed(function() {
-    var headerImages = ['hands.jpg', 'lawn-party.jpg', 'party.jpg', 'pour.jpg', 'sitting.jpg', 'more-beer.jpg', 'solo-cups.jpg'];
+    var headerImages = ['hands.jpg', 'lawn-party.jpg', 'party.jpg', 'pour.jpg', 'sitting.jpg', 'more-beer.jpg', 'solo-cups.jpg', 'miley.jpg', 'more-hands.jpg', 'chill-apt.jpg', 'cocktails.jpg', 'legs.jpg', 'lan.jpg'];
     return "background: url('../img/" + headerImages[Math.floor(Math.random()*headerImages.length)] + "') no-repeat center center scroll;";
   })
 });
