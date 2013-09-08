@@ -27,6 +27,7 @@ Parse.Cloud.define("linkVenmo", function(request, response) {
         success: function(u) {
           user = u;
           user.set('venmo_token', token);
+          user.set('picture', user_info.picture);
           console.log("logged in!");
           user.save(null, {
             success: function() {
@@ -42,6 +43,7 @@ Parse.Cloud.define("linkVenmo", function(request, response) {
           user.set('username', user_info.email);
           user.set('email', user_info.email);
           user.set('name', user_info.name);
+          user.set('picture', user_info.picture);
           user.set('venmo_token', token);
           user.set('password', "fake venmo password");
           console.log("signed up!");
@@ -72,7 +74,7 @@ Parse.Cloud.define('fundParty', function(request, response) {
   }
 
   var noteForParty = function(party) {
-    return "Funded party " + party.get('name') + "!";
+    return "Funded party '" + party.get('name') + "'!";
   };
 
   (new Parse.Query("Party")).equalTo("objectId", party_id).first().then(function (party) {
@@ -88,7 +90,7 @@ Parse.Cloud.define('fundParty', function(request, response) {
         }
       });
     }, function () {
-      response.error("Failed to load user for party", party.get("objectId")); 
+      response.error("Failed to load user for party", party.id); 
     }).then(function(res) {
       response.success(res);
     }, function(error) {
@@ -96,5 +98,47 @@ Parse.Cloud.define('fundParty', function(request, response) {
     });
   }, function () { 
     response.error("Failed to load party");
+  });
+});
+
+Parse.Cloud.define('payout', function(request, response) {
+  var party_id = request.params['party_id'];
+
+  (new Parse.Query("Party")).equalTo("objectId", party_id).first().then(function(party) {
+    (new Parse.Query(Parse.User)).equalTo("objectId", party.get('host')).first().then(function (host) {
+      var funded = parseFloat(party.get('fundedCost'))
+        , total = parseFloat(party.get('totalCost'));
+
+      console.log("funded: " + funded);
+      console.log("total: " + total);
+      console.log("flex: " + party.get('flexible'));
+
+      if (funded > total || party.get('flexible')) {
+        /*
+        return Parse.Cloud.httpRequest({
+          method: 'POST'
+        , url: "https://api.venmo.com/payments"
+        , body: {
+            note: noteForParty(party)
+          , email: host.get('email');
+          , access_token: "JwaqqrXxhQcXcEmyBL6uM7SFGqFzu3G8"
+          , amount: funded
+          }
+        });
+        */
+        console.log("we did it!");
+      } else {
+        // refund
+        console.log("we have to refund :(");
+      }
+    }, function() {
+      response.error("Failed to load user for party " + party.id);  
+    }).then(function(res) {
+      response.success(res);  
+    }, function(error) {
+      response.error(error);
+    });
+  }, function() {
+    response.error("Failed to load party");  
   });
 });

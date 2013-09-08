@@ -67,6 +67,7 @@ PartyStarter.IndexController = Ember.Controller.extend({
 PartyStarter.WelcomeController = Ember.Controller.extend({
   actions: {
     toggleCreateForm: function() {
+      console.log("toggle");
       Ember.$('.top-img').toggleClass('host-form-active');
       if (Ember.$('.bottom-img').hasClass('after-transition')) {
         Ember.$('#createPartyName').blur();
