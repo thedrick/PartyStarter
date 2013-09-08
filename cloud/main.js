@@ -27,7 +27,7 @@ Parse.Cloud.define("linkVenmo", function(request, response) {
         success: function(u) {
           user = u;
           user.set('venmo_token', token);
-          user.set('picture', user_info.picture);
+          user.set('picture', user_info.picture.replace('/u/v1/s', '/u/v1/l'));
           console.log("logged in!");
           user.save(null, {
             success: function() {
@@ -43,7 +43,7 @@ Parse.Cloud.define("linkVenmo", function(request, response) {
           user.set('username', user_info.email);
           user.set('email', user_info.email);
           user.set('name', user_info.name);
-          user.set('picture', user_info.picture);
+          user.set('picture', user_info.picture.replace('/u/v1/s', '/u/v1/l'));
           user.set('venmo_token', token);
           user.set('password', "fake venmo password");
           console.log("signed up!");
@@ -128,8 +128,12 @@ Parse.Cloud.define('payout', function(request, response) {
         */
         console.log("we did it!");
       } else {
-        // refund
         console.log("we have to refund :(");
+
+        return (new Parse.Query("Attendee")).equalTo("partyid", party_id).find().then(function(attendees) {
+          console.log(attendees);
+          console.log(attendees.length);
+        });
       }
     }, function() {
       response.error("Failed to load user for party " + party.id);  
