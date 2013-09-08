@@ -133,7 +133,7 @@
           </div>
 
           <div class="donate">
-          	<input class="donate-input" {{bind-attr placeholder=minDonationWithDollar}}  name="donation"></input>
+            {{view PartyStarter.PlaceholderField class="donate-input" valueBinding="donateAmount" placeholderBinding="minDonationWithDollar" }}
             <div class="donate-btn create-btn" onclick="window.addAttendee()">Pitch In</div>
           </div>
         </div>

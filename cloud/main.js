@@ -61,3 +61,40 @@ Parse.Cloud.define("linkVenmo", function(request, response) {
     }
   });
 });
+
+Parse.Cloud.define('fundParty', function(request, response) {
+  var party_id = request.params['party_id']
+    , amount = request.params['amount']
+    , user = request.user;
+
+  if (!user) {
+    return response.error("Not logged in!");
+  }
+
+  var noteForParty = function(party) {
+    return "Funded party " + party.get('name') + "!";
+  };
+
+  (new Parse.Query("Party")).equalTo("objectId", party_id).first().then(function (party) {
+    (new Parse.Query(Parse.User)).equalTo("objectId", party.get('host')).first().then(function (host) {
+      return Parse.Cloud.httpRequest({
+        method: 'POST'
+      , url: "https://api.venmo.com/payments"
+      , body: {
+          note: noteForParty(party)
+        , email: "sri.raghavan.1+partyescrow@gmail.com"
+        , access_token: user.get('venmo_token')
+        , amount: amount
+        }
+      });
+    }, function () {
+      response.error("Failed to load user for party", party.get("objectId")); 
+    }).then(function(res) {
+      response.success(res);
+    }, function(error) {
+      response.error(error);
+    });
+  }, function () { 
+    response.error("Failed to load party");
+  });
+});
