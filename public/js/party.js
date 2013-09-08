@@ -41,7 +41,7 @@ $(document).ready(function() {
 		success: function(obj) {
 	        console.log("Successfully saved a party ", obj);
 	        // console.log("url: ", obj.get("photoUrl"));
-			    //window.location = '/parties/' + obj.id;
+			    window.location = '/parties/' + obj.id;
 	      }, 
 	      error: function(obj, err) {
 	        console.log("An error occured: ", err);
