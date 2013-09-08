@@ -1,0 +1,218 @@
+/* View Party */
+.header-img {
+    width: 100%;
+    -webkit-box-shadow: 4px 0 4px #555;
+    -moz-box-shadow: 4px 0 4px #555;
+    box-shadow: 4px 0 4px #555;
+    top: 0;
+    bottom: 60%;
+    opacity: 0.8;
+	height: 300px;
+}
+
+.party-name {
+    color: #FFF;
+    font: 6em 'Gudea', sans-serif;
+    font-style: italic;
+    opacity: .8;
+    padding-top: 100px;
+    text-shadow: 1px 1px 5px #333;
+    text-transform: uppercase;
+	text-align: center;
+}
+
+.party-desc{
+    color: #000;
+    font-style: italic;
+    opacity: .8;
+    padding-top: 30px;
+/*    text-shadow: 1px 1px 5px #333;
+*/	text-align: center;
+/*	width: 75%;
+*/	line-height: 1.3em;
+	font-size: 1.5em;
+	width: 80%;
+}
+
+#party-info {
+	width: 75%;
+	margin: 0 auto;
+	font: 1em 'Gudea', sans-serif;
+	text-align: center;
+	margin-top: 30px;
+}
+
+.party-info-section {
+	width: 270px;
+	display: inline-block;
+	margin: 0 auto;
+	text-align: center;
+	margin-top: 60px;
+	font-size: 2em;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.info-title {
+	display: block;
+	margin-bottom: 20px;
+}
+
+.info-pic {
+	display: inline-block;
+	margin: 0 auto;
+	width: 250px;
+	height: 250px;
+/*	border: 1px solid black; */
+}
+
+.info-pic img {
+	width: 250px;
+	height: 250px;
+}
+
+#money-info-section {
+	margin: 0 auto;
+	margin-top: 30px;
+	width: 100%;
+	height: auto;
+	margin-bottom: 50px;
+}
+
+.scale-wrapper {
+	width: 75%;
+	margin: 0 auto;
+}
+
+.scale {
+	height: 30px;
+	position: relative;
+	background: #555;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	padding: 10px;
+	-webkit-box-shadow: inset 0 -1px 1px rgba(255,255,255,0.3);
+	-moz-box-shadow   : inset 0 -1px 1px rgba(255,255,255,0.3);
+	box-shadow        : inset 0 -1px 1px rgba(255,255,255,0.3);
+	width: 80%;
+	margin: 0 auto;
+	margin-top: 50px;
+	text-align: center;
+	display: inline-block;
+}
+
+.scale > span {
+	display: block;
+	height: 100%;
+	   -webkit-border-top-right-radius: 5px;
+	-webkit-border-bottom-right-radius: 5px;
+	       -moz-border-radius-topright: 5px;
+	    -moz-border-radius-bottomright: 5px;
+	           border-top-right-radius: 5px;
+	        border-bottom-right-radius: 5px;
+	    -webkit-border-top-left-radius: 5px;
+	 -webkit-border-bottom-left-radius: 5px;
+	        -moz-border-radius-topleft: 5px;
+	     -moz-border-radius-bottomleft: 5px;
+	            border-top-left-radius: 5px;
+	         border-bottom-left-radius: 5px;
+/*	background-color: rgb(43,194,83);
+*/	background-color: #3D95CE;
+/*	background-image: -webkit-gradient(
+	  linear,
+	  left bottom,
+	  left top,
+	  color-stop(0, rgb(43,194,83)),
+	  color-stop(1, rgb(84,240,84))
+	 );
+	background-image: -webkit-linear-gradient(
+	  center bottom,
+	  rgb(43,194,83) 37%,
+	  rgb(84,240,84) 69%
+	 );
+	background-image: -moz-linear-gradient(
+	  center bottom,
+	  rgb(43,194,83) 37%,
+	  rgb(84,240,84) 69%
+	 );
+	background-image: -ms-linear-gradient(
+	  center bottom,
+	  rgb(43,194,83) 37%,
+	  rgb(84,240,84) 69%
+	 );
+	background-image: -o-linear-gradient(
+	  center bottom,
+	  rgb(43,194,83) 37%,
+	  rgb(84,240,84) 69%
+	 );*/
+	-webkit-box-shadow: 
+	  inset 0 2px 9px  rgba(255,255,255,0.3),
+	  inset 0 -2px 6px rgba(0,0,0,0.4);
+	-moz-box-shadow: 
+	  inset 0 2px 9px  rgba(255,255,255,0.3),
+	  inset 0 -2px 6px rgba(0,0,0,0.4);
+	position: relative;
+	overflow: hidden;
+	@-webkit-animation expandWidth {
+		0% { width: 0; }
+		100% {width: auto;}
+	}
+}
+
+
+.amount {
+	display: inline-block;
+	font-size: 2em;
+	vertical-align: top;
+	padding-top: 55px;
+}
+
+.left-price {
+	padding-right: 12px;
+}
+
+.right-price {
+	padding-left: 12px;
+}
+
+.donate {
+	margin: 0 auto;
+	width: 50%;
+	text-align: center;
+	margin-top: 50px;
+	padding-bottom: 40px;
+}
+
+.donate-input {
+	float:left;
+	width: 40%;
+	display: inline-block;
+	height: 45px;
+}
+
+.donate-btn {
+	display: inline-block;
+	margin: 0 auto;
+	width: 50%;
+	float: right;
+	height: 20px;
+}
+
+.invite {
+	margin: 0 auto;
+	width: 70%;
+	text-align: center;
+	margin-top: 60px;
+	padding-bottom: 40px;
+}
+
+.invite a{
+	text-decoration: none;
+}
+
+.invite-btn {
+	margin: 0 auto;
+	width: 70%;
+	background-color: rgb(43,194,83);
+}
