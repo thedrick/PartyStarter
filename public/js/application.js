@@ -53,25 +53,25 @@ PartyStarter.Party = Ember.Model.extend({
 , location: Ember.attr()
 , minDonation: Ember.attr(Number)
 , minDonationWithDollar: (function() {
-	var amount = this.get("minDonation");
-	var finMin = "$" + amount;
-	return finMin;
-}).property('minDonation')
+    var amount = this.get("minDonation")
+      , finMin = "$" + amount;
+    return finMin;
+  }).property('minDonation')
 , totalCost: Ember.attr(Number)
 , fundedCost: Ember.attr(Number)
 , remainingCostUpdate: (function() {
-	var total = Number(this.get("totalCost"));
-	var funded = Number(this.get("fundedCost"));
-	var remaining = total - funded;
-	if (remaining < 0) {
-		remaining = 0
-	}
-	return String(remaining);
-}).property('remainingCost')
+    var total = Number(this.get("totalCost"))
+      , funded = Number(this.get("fundedCost"))
+      , remaining = total - funded;
+    if (remaining < 0) {
+      remaining = 0
+    }
+    return String(remaining);
+  }).property('totalCost', 'fundedCost')
 // , photoUrl: Ember.attr()
 , headerBg: Ember.computed(function() {
     var headerImages = ['hands.jpg', 'lawn-party.jpg', 'party.jpg', 'pour.jpg', 'sitting.jpg', 'more-beer.jpg', 'miley.jpg', 'more-hands.jpg', 'chill-apt.jpg', 'cocktails.jpg', 'legs.jpg', 'lan.jpg', 'more-miley.jpg', 'twerk.jpg'];
-    return "background: url('../img/" + headerImages[Math.floor(Math.random()*headerImages.length)] + "') no-repeat center center scroll;";
+    return "background: url('/img/" + headerImages[Math.floor(Math.random()*headerImages.length)] + "') no-repeat center center scroll;";
   })
 });
 
