@@ -5,18 +5,25 @@ $(document).ready(function() {
   var Party = Parse.Object.extend("Party");
 
   window.createParty = function() {
+    var user = Parse.User.current();
+    if (!user) {
+      alert("You must be logged in to create a party!");
+      return;
+    }
     var formArray = $("#createPartyForm").serializeArray();
     var party = new Party();
     for (var i = 0; i < formArray.length; i++) {
       var element = formArray[i];
       party.set(element.name, element.value);
     }
-	var photoUploadControl = $("#createPartyPhoto")[0];
-	if (photoUploadControl.files.length > 0) {
-		var photo = photoUploadControl.files[0];
-		var name = "photo.jpg"
-		var parseFile = new Parse.File(name, photo);
-	}
+    party.set("host", user.id);
+    party.set("fundedCost", 0);
+	  var photoUploadControl = $("#createPartyPhoto")[0];
+	  if (photoUploadControl.files.length > 0) {
+  		var photo = photoUploadControl.files[0];
+  		var name = "photo.jpg"
+		  var parseFile = new Parse.File(name, photo);
+	 }
 	
 	if (autocompleteLocation.getPlace() !== undefined) {
 		var place = autocompleteLocation.getPlace();
@@ -126,12 +133,44 @@ $(document).ready(function() {
     }
     var Attendee = Parse.Object.extend("Attendee");
     var attendee = new Attendee();
+    var donationValue = Number(donation);
     attendee.set("username", user.get("username"));
-    attendee.set("donation", Number(donation));
-    attendee.set("partyid", "UkKzyLIkuh");
+    attendee.set("donation", donationValue);
+    attendee.set("partyid", localStorage["currentParty"]);
     attendee.save(null, {
       success: function(obj) {
         console.log("Successfully saved a new attendee", obj);
+        var query = new Parse.Query(Party);
+        query.get(localStorage["currentParty"], {
+          success: function(result) {
+            console.log(result);
+            console.log("minDonation is ", result.get("minDonation"));
+            if (Number(result.get("minDonation")) <= donationValue) {
+              var currentFund = Number(result.get("fundedCost"));
+              currentFund += donationValue
+              result.set("fundedCost", String(currentFund));
+              result.save(null, {
+                success: function(obj) {
+                  console.log("successfully updated current funds", obj);
+                },
+                error: function(err) {
+                  console.log("Error incrementing the current funds ", err);
+                }
+              });
+            } else {
+              attendee.destroy({
+                success: function() {
+                  console.log("Successfully destoryed attendee after non-minimum dontaion attempted");
+                  alert("You must submit at least the minimum donation to join this party.");
+                },
+                error: function(err) {
+                  console.log("Encountered error: ", err);
+                  alert("You must submit at least the minimum donation to join this party. Attendee destruction failed");
+                }
+              });
+            }
+          }
+        });
       },
       error: function(err) {
         console.log("Error saving new attendee", err);
