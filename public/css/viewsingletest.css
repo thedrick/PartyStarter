@@ -9,6 +9,9 @@
 .header-img .event-numbers {
   opacity: 1;
 }
+hr {
+  width: 120px;
+}
 .party-view {
   color: #333;
   font-family: 'Source Sans Pro', sans-serif;
@@ -21,7 +24,6 @@
 	margin: 0 auto;
   text-align: center;
 }
-
 .party-details {
 	width: 33%;
 	display: inline-block;
@@ -51,90 +53,76 @@
   border-radius: 50%;
 }
 
-.party-info {
-	display: block;
-	margin: 0 auto;
-	padding-top: 30px;
-	padding-bottom: 40px;
-	vertical-align: top;
-	padding-left: 20px;
-  text-align: center;
+.wide-subsection {
+  overflow: auto;
 }
-
-.details {
-	width: 48%;
-	font-size: 1.3em;
-/*	padding-left: 30px;
-*/	margin: 0 auto;
+.description {
+  font-size: 1.3em;
+  margin-right: 360px;
+  padding: 30px 0 0 20px;
 }
 
 .donate {
-	width: 48%;
-	display: inline-block;
-	margin: 0 auto;
-	text-align: center;
+	width: 250px;
+	float: right;
+  padding: 30px 75px 0 0;
 }
-
 .donate-input {
-	width: 320px;
+	width: 250px;
 	font-size: 1.2em;
-	padding: 12px 4px;
+	padding: 10px 4px;
   box-sizing: border-box;
 }
-
 .donate-btn {
   background: #3D95CE;
   border: 0;
   border-radius: 8px;
   color: #FFF;
-  font: 1.4em/1em 'Source Sans Pro', sans-serif;
-  font-weight: 200;
-  padding: 12px 4px;
+  display: block;
+  float: right;
+  font: 1em/1em 'Source Sans Pro', sans-serif;
+  margin: 5px 0;
+  padding: 8px;
   text-decoration: none;
-  width: 320px;
-  -webkit-box-shadow: 0 0 6px #555;
-  -moz-box-shadow: 0 0 6px #555;
-  box-shadow: 0 0 6px #555;
+  width: 74px;
   -webkit-transition: background 0.2s ease-in-out;
   -moz-transition: background 0.2s ease-in-out;
   -o-transition: background 0.2s ease-in-out;
   transition: background 0.2s ease-in-out;
-	margin: 20px auto;
-  display: block;
 }
-
-.invite-btn, .finish-btn {
-    background: #3D95CE;
-    border: 0;
-    border-radius: 8px;
-    color: #FFF;
-    font: 1.4em/1em 'Source Sans Pro', sans-serif;
-    font-weight: 200;
-    margin-top: 20px;
-    padding: 12px 4px;
-    text-decoration: none;
-    width: 320px;
-    -webkit-box-shadow: 0 0 6px #555;
-    -moz-box-shadow: 0 0 6px #555;
-    box-shadow: 0 0 6px #555;
-    -webkit-transition: background 0.2s ease-in-out;
-    -moz-transition: background 0.2s ease-in-out;
-    -o-transition: background 0.2s ease-in-out;
-    transition: background 0.2s ease-in-out;
-	display: inline-block;
-	margin: 0 auto;
-	width: 40%;
-	text-align: center;
-	margin-left: 20px;
-	margin-right: 20px;
+.invite-btn, 
+.finish-btn {
+  border: 0;
+  border-radius: 8px;
+  color: #FFF;
+  display: inline-block;
+  font: 1.4em/1em 'Source Sans Pro', sans-serif;
+  margin: 20px;
+  padding: 12px 6px;
+  text-align: center;
+  width: 40%;
+  -webkit-transition: background 0.2s ease-in-out;
+  -moz-transition: background 0.2s ease-in-out;
+  -o-transition: background 0.2s ease-in-out;
+  transition: background 0.2s ease-in-out;
 }
 
 .invite-btn {
-	background: green;
+	background: #3D95CE;
 }
 
 .finish-btn {
-	background: red;
+	background: #888;
+}
+
+.donate-btn:hover,
+.invite-btn:hover {
+  background: #007ccc;
+  cursor: pointer;
+}
+.finish-btn:hover {
+  background: #AAA;
+  cursor: pointer;
 }
 
 .buttons {

@@ -122,6 +122,16 @@
       </div>
 
       <div class="party-view">
+        <div class="wide-subsection">
+          <div class="donate">
+            <input class="donate-input" {{bind-attr placeholder=minDonationWithDollar}}  name="donation" />
+            <div class="donate-btn" onclick="window.addAttendee()">Pitch In &nbsp;<i class="icon-thumbs-up"></i></div>
+          </div>
+          <div class="description">
+            {{description}}
+          </div>
+        </div>
+        <hr>
         <div class="subsection">
           <div class="party-details">
             <span class="detail-big">Time</span>
@@ -140,15 +150,7 @@
             <span class="detail-title">{{location}}</span>
           </div>
         </div>
-        <div class="subsection">
-          <div class="party-info details">
-            {{description}}
-          </div>
-          <div class="party-info donate">
-            <input class="donate-input" {{bind-attr placeholder=minDonationWithDollar}}  name="donation" />
-            <div class="donate-btn" onclick="window.addAttendee()">Pitch In</div>
-          </div>
-        </div>
+        <hr>
         <div class="subsection buttons">
           <div class="invite-btn" onclick="">Invite Your Crew</div>
           <div class="finish-btn" onclick="">Stop Partying</div>
