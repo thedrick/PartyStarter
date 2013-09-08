@@ -22,12 +22,12 @@
     <script type="text/javascript" src="/js/ember-query.js"></script>
     <script type="text/javascript" src="/js/ember-model.js"></script>
     <script type="text/javascript" src="/js/parse-adapter.js"></script>
+    <script type="text/javascript" src="/js/moment.min.js"></script>
     <script type="text/javascript" src="/js/application.js"></script>
-    <script type="text/javascript" src="/js/party.js"></script>
     <script type="text/javascript" src="/js/router.js"></script>
     <script type="text/javascript" src="/js/venmo.js"></script>
-    <script type="text/javascript" src="/js/moment.min.js"></script>
-	<script type="text/javascript" src="/js/view-party.js"></script>
+    <script type="text/javascript" src="/js/party.js"></script>
+	  <script type="text/javascript" src="/js/view-party.js"></script>
     <script type="text/x-handlebars" data-template-name="index">
       <div class="get-started">
         <span class="header-sans center-block">Get the Party Started</span>
@@ -128,7 +128,7 @@
         </div>
         <div class="donate">
           	<input class="donate-input" {{bind-attr placeholder=minDonationWithDollar}}  name="donation"></input>
-          <a onclick="loadScale();"><div class="donate-btn create-btn">Pitch In</div></a>
+            <div class="donate-btn create-btn" onclick="window.addAttendee()">Pitch In</div>
         </div>
         <div class="invite">
           <a href="#"><div class="invite-btn create-btn">Invite Your Crew</div></a>

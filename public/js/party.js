@@ -78,6 +78,7 @@ $(document).ready(function() {
   }
 
   window.addAttendee = function() {
+    loadScale();
     var user = Parse.User.current();
     var donation = $(".donate-input").val();
     var donationValue = Number(donation);
@@ -124,7 +125,7 @@ $(document).ready(function() {
   }
   
   $('#createPartyButton').on('click', window.createParty);
-  $('.donate-btn').on('click', window.addAttendee);
+  // $('.donate-btn').on('click', window.addAttendee);
 
 });
 
