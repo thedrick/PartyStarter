@@ -142,8 +142,51 @@ PartyStarter.PlaceholderField = Ember.TextField.extend({
 PartyStarter.PartyController = Ember.ObjectController.extend({
   actions: {
     pitchIn: function() {
-      var donateAmount = parseFloat(this.get('donateAmount').replace('$',''));
-      Parse.Cloud.run('fundParty', { party_id: this.get('objectId'), amount: donateAmount }, {
+      loadScale();
+      var Attendee = Parse.Object.extend("Attendee");
+      var user = Parse.User.current()
+        , donationInput = $('.donate-input').val()
+        , donation = donationInput.replace("$", "")
+        , donationValue = Number(donation);
+
+      var party = PartyStarter.Party.find(localStorage["currentParty"]);
+        
+      var minDonation = Number(party.get("minDonation"));
+      if (minDonation > donationValue) {
+        alert("You must donate at least $" + String(minDonation) + "!");
+        return false;
+      }
+      var isNewAttendee = 0;
+      var attendeeQuery = new Parse.Query(Attendee);
+      attendeeQuery.equalTo("username", user.get("username"));
+      attendeeQuery.equalTo("partyid", localStorage["currentParty"]);
+      var attendee;
+      attendeeQuery.first().then(function(result) {
+        if (result) {
+          attendee = result;
+          var currentDonation = Number(attendee.get("donation")) + donationValue;
+          attendee.set("donation", String(currentDonation));
+        } else {
+          attendee = new Attendee();
+          isNewAttendee = 1;
+          attendee.set("username", user.get("username"));
+          attendee.set("partyid", localStorage["currentParty"]);
+          attendee.set("donation", donation);
+        }
+
+        return attendee.save();
+      }).then(function(attendee) {
+        party.set("numAttendees", party.get("numAttendees") + isNewAttendee);
+        party.set("fundedCost", party.get("fundedCost") + donationValue);
+        party.save();
+      }, function(err) {
+        console.log("Couldn't get attendees");
+        return;
+      });
+      $(".donate-input").val("").blur();
+
+      debugger;
+      Parse.Cloud.run('fundParty', { party_id: this.get('objectId'), amount: donationValue }, {
         success: function(response) {
           console.log(response);
         }
