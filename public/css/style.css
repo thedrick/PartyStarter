@@ -179,11 +179,13 @@ body {
 
 /* Nav */
 nav {
-  background: #FAFAFA;
+  background: transparent;
   height: 40px;
-  -webkit-box-shadow: 0 0 6px #666;
-  -moz-box-shadow: 0 0 6px #666;
-  box-shadow: 0 0 6px #666;
+  width: 150px;
+  position: fixed;
+  top: 0;
+  right: 5px;
+  z-index: 100;
 }
 .logo a {
   color: #333;
@@ -202,16 +204,16 @@ nav {
 }
 .links li {
   display: inline-block;
-  font: 1em/1em 'Source Sans Pro', sans-serif;
-  font-weight: 200;
+  font: 1.4em/1em 'Source Sans Pro', sans-serif;
+  opacity: .8;
   padding: 0 5px;
 }
 .links li a {
-  color: #333;
+  color: #EEE;
   text-decoration: none;
 }
 .links li a:hover {
-  color: #DDD;
+  color: #3D95CE;
 }
 .view-btn {
   background: #3D95CE;
@@ -241,8 +243,12 @@ nav {
 
 /* Feed */
 .feed {
-  margin: 0;
-  width: 100%;
+  background: #111;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 .feed .ember-view {
   text-decoration: none;
@@ -329,5 +335,20 @@ nav {
   .sign-in-btn {
     font-size: 4em;
     padding: 20px 40px;
+  }
+  .top-img .subtitle,
+  .bottom-img .subtitle,
+  .top-img:hover .cant-stop,
+  .bottom-img:hover .cant-stop,
+  .top-img.host-form-active .subtitle {
+    display: block;
+  }
+  .top-img:hover .subtitle,
+  .bottom-img:hover .subtitle,
+  .top-img .cant-stop,
+  .bottom-img .cant-stop,
+  .top-img.host-form-active .cant-stop,
+  .bottom-img.after-transition {
+    display: none;
   }
 }
