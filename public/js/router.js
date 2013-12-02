@@ -7,6 +7,7 @@ PartyStarter.Router.map(function() {
   this.route('parties');
   this.resource('party', { path: '/parties/:party_id' });
   this.route('oauth', { path: '/oauth/venmo' });
+  this.route('oauth.ios', { path: '/oauth/venmo/ios' });
   this.route('admin');
   this.route('logout');
 });
@@ -66,6 +67,17 @@ PartyStarter.OauthRoute = Ember.Route.extend({
         that.transitionTo('index');
       }
     });
+  }
+});
+
+PartyStarter.OauthIosRoute = Ember.Route.extend({
+  beforeModel: function() {
+    var params = this.queryParams()
+      , that = this;
+
+    console.log(params);
+
+    window.location.href = "venmo1353://oauth.authorize?" + $.param(params);
   }
 });
 
